@@ -53,7 +53,14 @@ addTwoNumbers(0, 0) //=> 0
 addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
-function addTwoNumbers(num1, num2) {}
+function addTwoNumbers(num1, num2) {
+  if (isNaN(num1) === true || isNaN(num2) === true) {
+    return NaN;
+  } else {
+    let num3 = num1 + num2;
+    return num3;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
 

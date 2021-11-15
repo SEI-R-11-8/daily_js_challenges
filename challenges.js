@@ -16,7 +16,7 @@ function sayHello() {
   return 'Hello!';
 }
 /* or 
-const sayHello - => {
+const sayHello = () => {
   return "Hello!"
 }
 */

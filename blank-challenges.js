@@ -33,7 +33,6 @@ addOne(-5) //=> -4
 function addOne(num) {
   return num + 1;
 }
-
 /*-----------------------------------------------------------------
 Challenge: 02-addTwoNumbers
 

@@ -16,7 +16,7 @@ function sayHello() {
   return 'Hello!';
 }
 /* or 
-const sayHello = () => {
+const sayHello - () => {
   return "Hello!"
 }
 */
@@ -34,8 +34,10 @@ Examples:
 addOne(1) //=> 2
 addOne(-5) //=> -4
 -----------------------------------------------------------------*/
-// Your solution for 01-addOne here:
-function addOne(num) {}
+// Your solution for 01-addOne here: why doesn't num++ work??
+function addOne(num) {
+  return num + 1;
+}
 /*-----------------------------------------------------------------
 Challenge: 02-addTwoNumbers
 

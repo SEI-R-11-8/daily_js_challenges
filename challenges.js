@@ -247,7 +247,21 @@ formatWithPadding(42, '*', 10); //=> "********42"
 formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
-function formatWithPadding(n, char, length) {}
+function formatWithPadding(n, char, length) {
+  // Wasn't sure if using the built-in 'padStart' function would be frowned upon, so I just wrote it all out.
+  let result = n.toString();
+  const originalLength = result.length;
+
+  if (originalLength >= length) {
+    return result;
+  }
+
+  for (let i = 0; i < length - originalLength; i++) {
+    result = char + result;
+  }
+
+  return result;
+}
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome
 
@@ -268,7 +282,25 @@ isPalindrome('A nut for a jar of tuna'); //=> true
 isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
-function isPalindrome(string) {}
+function isPalindrome(string) {
+  // Didn't know you couldn't just do string.replace(' ', '') to remove all spaces from a string in JavaScript.
+  // Regex is from https://stackoverflow.com/questions/5963182/how-to-remove-spaces-from-a-string-using-javascript.
+  string = string.replace(/\s+/g, '');
+  if (string.length <= 1) {
+    return true;
+  }
+
+  for (let i = 0; i < Math.floor(string.length / 2); i++) {
+    let firstChar = string[i].toLowerCase();
+    let secondChar = string[string.length - i - 1].toLowerCase();
+
+    if (firstChar !== secondChar) {
+      return false;
+    }
+  }
+
+  return true;
+}
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
 

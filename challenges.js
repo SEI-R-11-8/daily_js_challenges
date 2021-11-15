@@ -12,7 +12,10 @@ Examples:
 sayHello() //=> Hello!
 -----------------------------------------------------------------*/
 // Your solution for 00-sayHello (example) here:
-function sayHello() {}
+function sayHello() {
+  return 'Hello!';
+}
+// Solutions need to be exactly worded to pass the testing framework
 /*-----------------------------------------------------------------
 Challenge: 01-addOne
 
@@ -28,7 +31,10 @@ addOne(1) //=> 2
 addOne(-5) //=> -4
 -----------------------------------------------------------------*/
 // Your solution for 01-addOne here:
-function addOne(num) {}
+function addOne(num) {
+  num += 1;
+  return num;
+}
 /*-----------------------------------------------------------------
 Challenge: 02-addTwoNumbers
 
@@ -721,4 +727,4 @@ module.exports = {
   gridTrip,
   addChecker,
   totalTaskTime
-}
+};

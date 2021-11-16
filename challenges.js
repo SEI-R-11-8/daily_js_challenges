@@ -456,7 +456,16 @@ findHighestPriced([
 //=> { sku: 'b2', price: 50 }
 -----------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
-function findHighestPriced(arr) {}
+function findHighestPriced(arr) {
+  // Didn't realize the initial value for the reduce function was
+  // optional. Was able to shrink my solution down quite a bit after
+  // I found that out. Originally, I was using an initial value of null
+  // and assigning the accumulator to the current object if it was null OR
+  // had a lower price.
+  return arr.reduce((accumulator, obj) => {
+    return accumulator.price < obj.price ? obj : accumulator;
+  });
+}
 /*-----------------------------------------------------------------
 Challenge: 17-mapArray
 

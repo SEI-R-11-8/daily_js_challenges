@@ -404,7 +404,25 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-function mergeObjects(obj1, obj2) {}
+function mergeObjects(obj1, obj2) {
+  // This function is written differently than what's shown in the solutions.js file.
+  // It isn't using a rest parameter, and the arguments variable doesn't allow
+  // the use of high order functions like forEach.
+  // I remember being told to leave the functions alone, so this is the solution
+  // I came up with.
+  for (let i = 0; i < arguments.length; i++) {
+    let currentObj = arguments[i];
+
+    if (currentObj === obj1) {
+      continue;
+    }
+
+    for (let [key, val] of Object.entries(currentObj)) {
+      obj1[key] = val;
+    }
+  }
+  return obj1;
+}
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
 

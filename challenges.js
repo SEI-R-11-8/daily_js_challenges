@@ -99,8 +99,8 @@ add(7,-12) //=> -5
 // Your solution for 04-addList here:
 function addList() {
   let total = 0
-  for (i = 0;i < this.length; i++) {
-  total += this[i]
+  for (i = 0;i < arguments.length; i++) {
+  total += arguments[i] // Logs array
   }
   return total
 }

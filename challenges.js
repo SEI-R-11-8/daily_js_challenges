@@ -603,7 +603,21 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
-function isPrime(n) {}
+function isPrime(n) {
+  // https://stackoverflow.com/questions/2304052/check-if-a-number-has-a-decimal-place-is-a-whole-number#2304062
+  // Googled how to determine if a number was a decimal or not.
+  if (n <= 1 || n % 1 !== 0) {
+    return false;
+  }
+
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
 /*-----------------------------------------------------------------
 Challenge: 21-primeFactors
 

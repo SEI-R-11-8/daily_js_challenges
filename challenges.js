@@ -249,16 +249,14 @@ formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 function formatWithPadding(n, char, length) {
-
-  var num = n,
+  let num = n,
   nString = num.toString(),
   nLeng = nString.length;
   if ( nLeng > length) { 
     return nString
   } else {
-    return char += length + nString
+  return char.repeat(length - nLeng) + nString
   }
-
 }
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome

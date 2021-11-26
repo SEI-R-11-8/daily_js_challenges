@@ -150,8 +150,11 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------*/
 // Your solution for 06-range here:
 function range(n1, n2) {
-//   Array.from({ length: (n2 - n1) / step + 1}, (_, i) => start + (i * step));
-//   Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+  if (n1 > n2) {
+  return "First argument must be less than second";
+  } else {
+  return (new Array(n2 - n1)).fill(undefined).map((_, i) => i + n1);
+  }
 }
 /*-----------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
@@ -212,7 +215,17 @@ charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i:
 -----------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 function charCount(string) {
-  
+
+  let eachChar = {};
+    for (let i=0; i<string.length;i++) {
+      let character = string.charAt(i);
+      if (eachChar[character]) {
+          eachChar[character]++;
+      } else {
+          eachChar[character] = 1;
+      }
+    }
+    return eachChar;
 }
 /*-----------------------------------------------------------------
 Challenge: 10-formatWithPadding
@@ -235,7 +248,18 @@ formatWithPadding(42, '*', 10); //=> "********42"
 formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
-function formatWithPadding(n, char, length) {}
+function formatWithPadding(n, char, length) {
+
+  var num = n,
+  nString = num.toString(),
+  nLeng = nString.length;
+  if ( nLeng > length) { 
+    return nString
+  } else {
+    return char += length + nString
+  }
+
+}
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome
 

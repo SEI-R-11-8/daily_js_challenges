@@ -101,7 +101,9 @@ add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
-function addList() {}
+function addList() {
+  let sum = 0;
+}
 /*-----------------------------------------------------------------
 Challenge: 05-computeRemainder
 
@@ -121,7 +123,16 @@ computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
-function computeRemainder(n1, n2) {}
+function computeRemainder(n1, n2) {
+  let remainder = 0;
+  if (n2 === 0) {
+    return Infinity;
+  }
+  {
+    remainder = n1 % n2;
+    return remainder;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 06-range
 

@@ -128,7 +128,19 @@ computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
-function computeRemainder(n1, n2) {}
+function computeRemainder(n1, n2) {
+  if (n2 == 0) {
+    return Infinity;
+  } else {
+    let tester = n1 - n2;
+
+    while (tester >= n2) {
+      tester -= n2;
+    }
+
+    return tester;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 06-range
 
@@ -147,7 +159,22 @@ range(1,1) //=> []
 range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------*/
 // Your solution for 06-range here:
-function range(n1, n2) {}
+function range(n1, n2) {
+  newArr = [];
+
+  if (n1 > n2) {
+    return "First argument must be less than second";
+  } else if (n1 == n2) {
+    return newArr;
+  } else {
+    while (n1 < n2) {
+      newArr.push(n1);
+      n1++;
+    }
+
+    return newArr;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
 
@@ -162,7 +189,9 @@ Examples:
 reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES" 
 -----------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
-function reverseUpcaseString(string) {}
+function reverseUpcaseString(string) {
+  return string.split("").reverse().join("").toUpperCase();
+}
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
 

@@ -884,7 +884,13 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
-function countTheBits(n) {}
+function countTheBits(n) {
+  return parseInt(
+    Array.from(n.toString(2)).reduce((accumulator, element) => {
+      return parseInt(accumulator) + parseInt(element);
+    })
+  );
+}
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 

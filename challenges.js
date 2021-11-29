@@ -745,7 +745,7 @@ function balancedBrackets(string) {
       brackets.pop();
     }
   }
-  console.log(brackets);
+
   return brackets.length === 0;
 }
 /*-----------------------------------------------------------------
@@ -914,7 +914,41 @@ gridTrip( [5, 10], 'D5L15U2' ) //-> [2, -5]
 gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 -----------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
-function gridTrip(arr, string) {}
+function gridTrip(arr, string) {
+  let result = {
+    finalX: arr[0],
+    finalY: arr[1],
+    adjustCoordinate(dimension, amount) {
+      this[dimension] += amount;
+    },
+    convertMovementAndApply(direction, amount) {
+      let intAmount = parseInt(amount);
+      switch (direction) {
+        case 'U':
+          this.adjustCoordinate('finalX', intAmount);
+          break;
+        case 'D':
+          this.adjustCoordinate('finalX', -intAmount);
+          break;
+        case 'L':
+          this.adjustCoordinate('finalY', -intAmount);
+          break;
+        case 'R':
+          this.adjustCoordinate('finalY', intAmount);
+          break;
+      }
+    }
+  };
+
+  Array.from(string.matchAll(/([\S])(\d+)/g)).forEach((match) => {
+    let direction = match[1];
+    let amount = match[2];
+    console.log(direction, amount);
+    result.convertMovementAndApply(direction, amount);
+  });
+
+  return [result.finalX, result.finalY];
+}
 /*-----------------------------------------------------------------
 Challenge: 29-addChecker
 

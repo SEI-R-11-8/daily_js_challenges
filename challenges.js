@@ -974,7 +974,26 @@ addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
-function addChecker(arr, n) {}
+function addChecker(arr, n) {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left !== right) {
+    let sum = arr[left] + arr[right];
+
+    if (sum === n) {
+      return true;
+    }
+
+    if (sum > n) {
+      right--;
+    } else if (sum < n) {
+      left++;
+    }
+  }
+
+  return false;
+}
 /*-----------------------------------------------------------------
 Challenge: 30-totalTaskTime
 

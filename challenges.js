@@ -819,7 +819,17 @@ getNumForIP( '192.156.99.15' ) // => 3231474447
 getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
-function getNumForIP(bits) {}
+function getNumForIP(ip) {
+  return ip.split('.').reduce((accumulator, element, index, arr) => {
+    let invertedIndex = arr.length - index;
+
+    if (index === 1) {
+      accumulator *= 256 ** invertedIndex;
+    }
+
+    return accumulator + element * 256 ** (invertedIndex - 1);
+  });
+}
 /*-----------------------------------------------------------------
 Challenge: 26-toCamelCase
 

@@ -855,8 +855,7 @@ toCamelCase( 'A_b_c' ) // => 'ABC'
 -----------------------------------------------------------------*/
 // Your solution for 26-toCamelCase here:
 function toCamelCase(string) {
-  let re = /[\-\_](\w)/g;
-  return string.replaceAll(re, (all, sub) => {
+  return string.replaceAll(/[\-\_](\w)/g, (all, sub) => {
     return sub.toUpperCase();
   });
 }

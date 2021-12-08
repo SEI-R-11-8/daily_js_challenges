@@ -79,7 +79,17 @@ sumNumbers([2, 10, -5]) //=> 7
 sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
-function sumNumbers(nums) {}
+function sumNumbers(nums) {
+  if (nums) {
+    let sum = 0;
+    for (i = 0; i < nums.length; i++) {
+      sum += nums[i];
+    }
+    return sum;
+  } else {
+    return 0;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 04-addList
 
@@ -98,7 +108,13 @@ add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
-function addList() {}
+function addList() {
+  let sum = 0;
+  for (i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+  return sum;
+}
 /*-----------------------------------------------------------------
 Challenge: 05-computeRemainder
 
@@ -118,7 +134,13 @@ computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
-function computeRemainder(n1, n2) {}
+function computeRemainder(n1, n2) {
+  if (n2 === 0) {
+    return Infinity;
+  } else {
+    return n1 % n2;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 06-range
 
@@ -137,7 +159,20 @@ range(1,1) //=> []
 range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------*/
 // Your solution for 06-range here:
-function range(n1, n2) {}
+function range(n1, n2) {
+  if (n1 > n2) {
+    return 'First argument must be less than second';
+  } else {
+    let numArr = [];
+    for (i = 0; i < n2 - n1 + 1; i++) {
+      let curNum = n1 + i;
+      if (curNum < n2) {
+        numArr.push(curNum);
+      }
+    }
+    return numArr;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
 
@@ -152,7 +187,14 @@ Examples:
 reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES" 
 -----------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
-function reverseUpcaseString(string) {}
+function reverseUpcaseString(string) {
+  let word = string;
+  const arr = word.split('');
+  const upCaseArr = arr.reduce((acc, letter) => {
+    return letter.toUpperCase() + acc;
+  }, '');
+  return upCaseArr;
+}
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
 
@@ -169,7 +211,22 @@ removeEnds('SEI Rocks!'); //=> "DI Rocks"
 removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
-function removeEnds(string) {}
+function removeEnds(string) {
+  if (string.length >= 3) {
+    const arr = string.split('');
+    const splitWord = arr.reduce((acc, letter, index) => {
+      if (index !== 0 && index !== arr.length - 1) {
+        acc = acc + letter;
+        return acc;
+      } else {
+        return acc;
+      }
+    }, '');
+    return splitWord;
+  } else {
+    return '';
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 09-charCount
 

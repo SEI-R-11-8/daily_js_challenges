@@ -324,7 +324,11 @@ hammingDistance('!!!!', '****'); //=> 4
 hammingDistance('abc', 'ab'); //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
-function hammingDistance(str1, str2) {}
+function hammingDistance(str1, str2) {
+  if (str1.length !== str2.length) {
+    return NaN;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 13-mumble
 

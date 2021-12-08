@@ -295,7 +295,14 @@ isPalindrome('A nut for a jar of tuna'); //=> true
 isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
-function isPalindrome(string) {}
+function isPalindrome(string) {
+  // if (string === string.split('').reverse().join('')) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+  return string === string.split('').reverse().join('') ? true : false;
+}
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
 

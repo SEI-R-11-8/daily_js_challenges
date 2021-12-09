@@ -404,7 +404,26 @@ mumble('121'); //=> '1-22-111'
 mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
-function mumble(string) {}
+function mumble(string) {
+  let arr = [];
+  for (i = 0; i < string.length; i++) {
+    arr.push(string[i]);
+  }
+  const mum = arr.reduce((acc, digit, index) => {
+    let mult = index + 1;
+    let multDigit = '';
+    for (i = 0; i < mult; i++) {
+      multDigit = multDigit + digit;
+    }
+    if (index < arr.length - 1) {
+      acc = `${acc}${multDigit}-`;
+    } else {
+      acc = `${acc}${multDigit}`;
+    }
+    return acc;
+  }, '');
+  return mum;
+}
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
 

@@ -77,8 +77,8 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 function sumNumbers(nums) {
-  const sum = nums.reduce((acc, value) => {
-    acc + value;
+  let sum = nums.reduce((acc, value) => {
+    return acc + value;
   }, 0);
   return sum;
 }

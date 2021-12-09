@@ -174,7 +174,13 @@ Examples:
 reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES" 
 -----------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
-function reverseUpcaseString(string) {}
+function reverseUpcaseString(string) {
+  let newString = '';
+  for (let i = string.length - 1; i > 0; i--) {
+    newString += str[i];
+  }
+  return newString.toUpperCase;
+}
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
 
@@ -191,7 +197,13 @@ removeEnds('SEI Rocks!'); //=> "DI Rocks"
 removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
-function removeEnds(string) {}
+function removeEnds(string) {
+  if (string.length < 3) {
+    return '';
+  } else {
+    string.splice(0, string.length - 1);
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 09-charCount
 

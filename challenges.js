@@ -51,7 +51,14 @@ addTwoNumbers(0, 0) //=> 0
 addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
-function addTwoNumbers(num1, num2) {}
+function addTwoNumbers(num1, num2) {
+  let sum;
+  if (typeof num1 === 'number' && typeof num2 === 'number') {
+    sum = num1 + num2;
+    return sum;
+  }
+  return NaN;
+}
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
 
@@ -70,7 +77,16 @@ sumNumbers([2, 10, -5]) //=> 7
 sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
-function sumNumbers(nums) {}
+function sumNumbers(nums) {
+  let sum;
+  if (nums.length === 0) {
+    return 0;
+  }
+  for (let i = 0; i < nums.length; i++) {
+    sum = nums[i] + nums[i + 1];
+  }
+  return sum;
+}
 /*-----------------------------------------------------------------
 Challenge: 04-addList
 

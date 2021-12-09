@@ -1,11 +1,9 @@
-nums = [1, 2, 3, 4, 5];
+const n1 = 10.5;
+const n2 = 3;
 
-let sum;
-
-function sumNumbers() {
-  sum = nums.reduce(function (a, num) {
-    return a + num;
-  }, 0);
+function weqer() {
+  let result = Math.floor(n1 / n2);
+  let remainder = n1 - result * n2;
+  return remainder;
 }
-sumNumbers();
-console.log(sum);
+weqer();

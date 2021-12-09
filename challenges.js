@@ -125,7 +125,11 @@ computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
-function computeRemainder(n1, n2) {}
+function computeRemainder(n1, n2) {
+  let result = Math.floor(n1 / n2);
+  let remainder = n1 - result * n2;
+  return remainder;
+}
 /*-----------------------------------------------------------------
 Challenge: 06-range
 

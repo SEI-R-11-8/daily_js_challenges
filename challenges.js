@@ -327,6 +327,16 @@ hammingDistance('abc', 'ab'); //=> NaN
 function hammingDistance(str1, str2) {
   if (str1.length !== str2.length) {
     return NaN;
+  } else {
+    let distance = 0;
+    const str1Arr = str1.split('');
+    const str2Arr = str2.split('');
+    for (i = 0; i < str1.length; i++) {
+      if (str1Arr[i] !== str2Arr[i]) {
+        distance += 1;
+      }
+    }
+    return distance;
   }
 }
 /*-----------------------------------------------------------------

@@ -79,6 +79,7 @@ function sumNumbers(nums) {
   sum = nums.reduce(function (a, num) {
     return a + num;
   }, 0);
+  return sum;
 }
 /*-----------------------------------------------------------------
 Challenge: 04-addList
@@ -98,7 +99,13 @@ add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
-function addList() {}
+function addList(a) {
+  total = 0;
+  a.forEach((e) => {
+    total += e;
+  });
+  return total;
+}
 /*-----------------------------------------------------------------
 Challenge: 05-computeRemainder
 

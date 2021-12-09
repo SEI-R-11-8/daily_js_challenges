@@ -102,7 +102,7 @@ add(7,-12) //=> -5
 // Your solution for 04-addList here:
 function addList(...numbers) {
   return numbers.reduce((acc, val) => {
-    acc + val;
+    return acc + val;
   }, 0);
 }
 /*-----------------------------------------------------------------

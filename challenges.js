@@ -78,13 +78,16 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 function sumNumbers(nums) {
-  let sum;
+  let sum = 0;
   if (nums.length === 0) {
     return 0;
+  } else if (nums.length == 1) {
+    return nums[0];
   }
   for (let i = 0; i < nums.length; i++) {
-    sum = nums[i] + nums[i + 1];
+    sum += nums[i];
   }
+
   return sum;
 }
 /*-----------------------------------------------------------------

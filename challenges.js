@@ -56,7 +56,14 @@ addTwoNumbers(0, 0) //=> 0
 addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
-function addTwoNumbers(num1, num2) {}
+function addTwoNumbers(num1, num2) {
+  if (typeof num1 === 'number' && typeof num2 === 'number') {
+    return num1 + num2;
+  } else {
+    return NaN;
+  }
+}
+
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
 
@@ -75,7 +82,14 @@ sumNumbers([2, 10, -5]) //=> 7
 sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
-function sumNumbers(nums) {}
+function sumNumbers(nums) {
+  let total = 0;
+  for (let i = 0; i < nums.length; i++) {
+    total = total + nums[i];
+  }
+  return total;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 04-addList
 
@@ -94,7 +108,14 @@ add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
-function addList() {}
+function addList() {
+  let list = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    list = list + arguments[i];
+  }
+  return list;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 05-computeRemainder
 
@@ -114,7 +135,10 @@ computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
-function computeRemainder(n1, n2) {}
+function computeRemainder(n1, n2) {
+  if (n2 === 0) return Infinity;
+  return n1 % n2;
+}
 /*-----------------------------------------------------------------
 Challenge: 06-range
 
@@ -133,7 +157,17 @@ range(1,1) //=> []
 range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------*/
 // Your solution for 06-range here:
-function range(n1, n2) {}
+function range(n1, n2) {
+  if (n1 > n2) return 'First argument must be less than second';
+
+  let list = [];
+  for (let i = n1; i < n2; i++) {
+    list.push(i);
+  }
+
+  return list;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
 

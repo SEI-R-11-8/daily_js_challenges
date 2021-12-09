@@ -14,7 +14,7 @@ sayHello() //=> Hello!
 // Your solution for 00-sayHello (example) here:
 
 function sayHello() {
-  return 'Hello!'
+  return "Hello!";
 }
 
 /*-----------------------------------------------------------------
@@ -34,7 +34,7 @@ function sayHello() {
 // Your solution for 01-addOne here:
 
 function addOne(num) {
-  return num + 1
+  return num + 1;
 }
 
 /*-----------------------------------------------------------------
@@ -57,10 +57,10 @@ function addOne(num) {
 // Your solution for 02-addTwoNumbers here:
 
 function addTwoNumbers(num1, num2) {
-  if (typeof num1 === 'number' && typeof num2 === 'number') {
-    return num1 + num2
+  if (typeof num1 === "number" && typeof num2 === "number") {
+    return num1 + num2;
   } else {
-    return NaN
+    return NaN;
   }
 }
 
@@ -85,11 +85,11 @@ function addTwoNumbers(num1, num2) {
 
 /*--- okay solution ---*/
 function sumNumbers(nums) {
-  var sum = 0
+  var sum = 0;
   for (var i = 0; i < nums.length; i++) {
-    sum += nums[i]
+    sum += nums[i];
   }
-  return sum
+  return sum;
 }
 
 /*--- better solution (use forEach unless you have to exit loop early) ---*/
@@ -127,11 +127,11 @@ function sumNumbers(nums) {
 
 /*--- using the arguments keyword (array-like object) and a for loop ---*/
 function addList() {
-  var sum = 0
+  var sum = 0;
   for (var i = 0; i < arguments.length; i++) {
-    sum += arguments[i]
+    sum += arguments[i];
   }
-  return sum
+  return sum;
 }
 
 /*--- make arguments a true array then forEach ---*/
@@ -172,8 +172,8 @@ function addList() {
 
 /*--- Not using the modulus operator ---*/
 function computeRemainder(n1, n2) {
-  if (n2 === 0) return Infinity
-  return n1 - Math.floor(n1 / n2) * n2
+  if (n2 === 0) return Infinity;
+  return n1 - Math.floor(n1 / n2) * n2;
 }
 
 /*--- Using the modulus operator ---*/
@@ -202,14 +202,14 @@ function computeRemainder(n1, n2) {
 // Your solution for 06-range here:
 
 function range(start, finish) {
-  if (start > finish) return 'First argument must be less than second'
+  if (start > finish) return "First argument must be less than second";
 
-  var range = []
+  var range = [];
   for (var n = start; n < finish; n++) {
-    range.push(n)
+    range.push(n);
   }
 
-  return range
+  return range;
 }
 
 /*-----------------------------------------------------------------
@@ -228,13 +228,13 @@ function range(start, finish) {
 // Your solution for 07-reverseUpcaseString here:
 
 function reverseUpcaseString(str) {
-  var results = ''
+  var results = "";
   for (var i = 0; i < str.length; i++) {
     // can use square brackets to access chars in a string
     // but using the charAt() method is preferred
-    results = str.charAt(i).toUpperCase() + results
+    results = str.charAt(i).toUpperCase() + results;
   }
-  return results
+  return results;
 }
 
 // function reverseUpcaseString(str) {
@@ -268,12 +268,12 @@ function reverseUpcaseString(str) {
 
 /*--- Using for loop ---*/
 function removeEnds(str) {
-  if (str.length < 3) return ''
-  var result = ''
+  if (str.length < 3) return "";
+  var result = "";
   for (var i = 1; i < str.length - 1; i++) {
-    result += str.charAt(i)
+    result += str.charAt(i);
   }
-  return result
+  return result;
 }
 
 /*--- Using substr String method ---*/
@@ -303,17 +303,18 @@ function removeEnds(str) {
 
 /*--- using a for loop ---*/
 function charCount(str) {
-  var result = {}
-  for (var i = 0; i < str.length; i++) {
-    var char = str.charAt(i)
+  let result = {};
+  for (let i = 0; i < str.length; i++) {
+    let char = str.charAt(i);
+
     // already seen this char?
     if (result[char]) {
-      result[char]++
+      result[char]++;
     } else {
-      result[char] = 1
+      result[char] = 1;
     }
   }
-  return result
+  return result;
 }
 
 /*--- convert str to array and use reduce with a ternary ---*/
@@ -348,11 +349,11 @@ function charCount(str) {
 
 /*--- Using for while loop ---*/
 function formatWithPadding(int, char, length) {
-  var result = int.toFixed(0)
+  var result = int.toFixed(0);
   while (result.length < length) {
-    result = char + result
+    result = char + result;
   }
-  return result
+  return result;
 }
 
 /*--- Using the padStart String method ---*/
@@ -383,13 +384,13 @@ function formatWithPadding(int, char, length) {
 
 /*--- Using a for loop ---*/
 function isPalindrome(str) {
-  str = str.toLowerCase()
+  str = str.toLowerCase();
   // loop to replace spaces
-  while (str.includes(' ')) str = str.replace(' ', '')
+  while (str.includes(" ")) str = str.replace(" ", "");
   for (var i = 0; i < Math.floor(str.length / 2); i++) {
-    if (str.charAt(i) !== str.charAt(str.length - i - 1)) return false
+    if (str.charAt(i) !== str.charAt(str.length - i - 1)) return false;
   }
-  return true
+  return true;
 }
 
 /*--- Using regular expression to replace spaces ---*/
@@ -425,12 +426,12 @@ function isPalindrome(str) {
 // Your solution for 12-hammingDistance here:
 
 function hammingDistance(s1, s2) {
-  if (s1.length !== s2.length) return NaN
-  var count = 0
+  if (s1.length !== s2.length) return NaN;
+  var count = 0;
   for (var i = 0; i < s1.length; i++) {
-    if (s1.charAt(i) !== s2.charAt(i)) count++
+    if (s1.charAt(i) !== s2.charAt(i)) count++;
   }
-  return count
+  return count;
 }
 
 /*--- convert one string to array and reduce ---*/
@@ -462,12 +463,12 @@ function hammingDistance(s1, s2) {
 // Your solution for 13-mumble here:
 
 function mumble(str) {
-  var result = ''
+  var result = "";
   for (var i = 0; i < str.length; i++) {
     // the ((i || '') && '-') only adds a dash if it's not the first iteration
-    result += ((i || '') && '-') + str.charAt(i).repeat(i + 1)
+    result += ((i || "") && "-") + str.charAt(i).repeat(i + 1);
   }
-  return result
+  return result;
 }
 
 /*--- convert to array and use reduce (break that one-liner down!) ---*/
@@ -495,11 +496,11 @@ function mumble(str) {
 
 /*--- using forEach ---*/
 function fromPairs(arr) {
-  var obj = {}
+  var obj = {};
   arr.forEach(function (kvArr) {
-    obj[kvArr[0]] = kvArr[1]
-  })
-  return obj
+    obj[kvArr[0]] = kvArr[1];
+  });
+  return obj;
 }
 
 /*--- using reduce & arrow function ---*/
@@ -533,10 +534,10 @@ function mergeObjects(target, ...objects) {
   objects.forEach(function (obj) {
     // using ES2015's 'for in' loop
     for (var key in obj) {
-      target[key] = obj[key]
+      target[key] = obj[key];
     }
-  })
-  return target
+  });
+  return target;
 }
 
 /*--- Using ES2015's Object.assign & spread operator ---*/
@@ -578,15 +579,15 @@ function mergeObjects(target, ...objects) {
 // Your solution for 16-findHighestPriced here:
 
 function findHighestPriced(arr) {
-  var highestPrice = 0
-  var resultObj
+  var highestPrice = 0;
+  var resultObj;
   arr.forEach(function (item) {
     if (item.price > highestPrice) {
-      highestPrice = item.price
-      resultObj = item
+      highestPrice = item.price;
+      resultObj = item;
     }
-  })
-  return resultObj
+  });
+  return resultObj;
 }
 
 /*--- using the reduce Array method ---*/
@@ -622,11 +623,11 @@ function findHighestPriced(arr) {
 // Your solution for 17-mapArray here:
 
 function mapArray(arr, cb) {
-  var newArr = []
+  var newArr = [];
   arr.forEach(function (el, idx) {
-    newArr.push(cb(el, idx))
-  })
-  return newArr
+    newArr.push(cb(el, idx));
+  });
+  return newArr;
 }
 
 /*-----------------------------------------------------------------
@@ -664,11 +665,11 @@ function mapArray(arr, cb) {
 // Your solution for 18-reduceArray here:
 
 function reduceArray(arr, cb, initAcc) {
-  var acc = initAcc
+  var acc = initAcc;
   arr.forEach(function (el, idx) {
-    acc = cb(acc, el, idx)
-  })
-  return acc
+    acc = cb(acc, el, idx);
+  });
+  return acc;
 }
 
 /*-----------------------------------------------------------------
@@ -700,16 +701,16 @@ function reduceArray(arr, cb, initAcc) {
 
 /*--- Using recursion ---*/
 function flatten(arr) {
-  var flatArr = []
+  var flatArr = [];
   arr.forEach(function (elem) {
     // use the Array.isArray static method to test if an array
     if (Array.isArray(elem)) {
-      flatArr = flatArr.concat(flatten(elem))
+      flatArr = flatArr.concat(flatten(elem));
     } else {
-      flatArr.push(elem)
+      flatArr.push(elem);
     }
-  })
-  return flatArr
+  });
+  return flatArr;
 }
 
 /*--- Using recursion and inline ternary for conciseness ---*/
@@ -747,11 +748,11 @@ function flatten(arr) {
 // Your solution for 20-isPrime here:
 
 function isPrime(n) {
-  if (n < 2 || !Number.isInteger(n)) return false
+  if (n < 2 || !Number.isInteger(n)) return false;
   for (var i = 2; i <= n / 2; i++) {
-    if (Number.isInteger(n / i)) return false
+    if (Number.isInteger(n / i)) return false;
   }
-  return true
+  return true;
 }
 
 /*-----------------------------------------------------------------
@@ -780,31 +781,31 @@ function isPrime(n) {
 
 /*--- most logical approach ---*/
 function primeFactors(n) {
-  var factors = []
-  if (n < 2 || !Number.isInteger(n)) return factors
+  var factors = [];
+  if (n < 2 || !Number.isInteger(n)) return factors;
 
   // function to help find next prime to divide by...
   function isPrime(n) {
-    if (n < 2 || !Number.isInteger(n)) return false
+    if (n < 2 || !Number.isInteger(n)) return false;
     for (var i = 2; i <= n / 2; i++) {
-      if (Number.isInteger(n / i)) return false
+      if (Number.isInteger(n / i)) return false;
     }
-    return true
+    return true;
   }
 
-  var prime = 2 // start with smallest prime
+  var prime = 2; // start with smallest prime
   while (!isPrime(n)) {
     if (Number.isInteger(n / prime)) {
-      factors.push(prime)
-      n = n / prime
+      factors.push(prime);
+      n = n / prime;
     } else {
       // find next prime
-      prime++
-      while (!isPrime(prime)) prime++
+      prime++;
+      while (!isPrime(prime)) prime++;
     }
   }
-  factors.push(n)
-  return factors
+  factors.push(n);
+  return factors;
 }
 
 /*-- a more efficient algorithm that relies on the fact
@@ -849,14 +850,14 @@ function primeFactors(n) {
 // Your solution for 22-intersection here:
 
 function intersection(a1, a2) {
-  var result = []
+  var result = [];
   // create copy of 2nd array for purpose of handling dups
-  var _a2 = [...a2]
+  var _a2 = [...a2];
   a1.forEach((val) => {
-    var idx = _a2.indexOf(val)
-    if (idx > -1) result.push(_a2.splice(idx, 1)[0])
-  })
-  return result
+    var idx = _a2.indexOf(val);
+    if (idx > -1) result.push(_a2.splice(idx, 1)[0]);
+  });
+  return result;
 }
 
 /*-----------------------------------------------------------------
@@ -890,19 +891,19 @@ function intersection(a1, a2) {
 
 function balancedBrackets(str) {
   // can't be balanced if string odd in length
-  if (str.length % 2) return false
-  var stack = []
+  if (str.length % 2) return false;
+  var stack = [];
   for (var i = 0; i < str.length; i++) {
-    var b = str.charAt(i)
-    if ('([{'.includes(b)) {
+    var b = str.charAt(i);
+    if ("([{".includes(b)) {
       // add opening brackets to the stack
-      stack.push(b)
+      stack.push(b);
     } else {
       // not an opening bracket, so remove last opening and check if matched
-      if (!'() {} []'.includes(stack.pop() + b)) return false
+      if (!"() {} []".includes(stack.pop() + b)) return false;
     }
   }
-  return true
+  return true;
 }
 
 /*--- Using Array.every method to iterate unless false is returned
@@ -952,15 +953,15 @@ function balancedBrackets(str) {
 
 /* Naive for loops - :( */
 function isWinningTicket(ticket) {
-  var winner = true
+  var winner = true;
   for (var i = 0; i < ticket.length; i++) {
-    var charFromNumber = String.fromCharCode(ticket[i][1])
+    var charFromNumber = String.fromCharCode(ticket[i][1]);
     if (!ticket[i][0].includes(charFromNumber)) {
-      winner = false
-      break
+      winner = false;
+      break;
     }
   }
-  return winner
+  return winner;
 }
 
 /* Array.prototype.every is sweet */
@@ -1003,12 +1004,12 @@ function isWinningTicket(ticket) {
 
 function getNumForIP(ip) {
   // reverse the chunks so that the we can use the index like 256**idx
-  var chunks = ip.split('.').reverse()
-  var sum = 0
+  var chunks = ip.split(".").reverse();
+  var sum = 0;
   chunks.forEach(function (chunk, idx) {
-    sum += parseInt(chunk) * 256 ** idx
-  })
-  return sum
+    sum += parseInt(chunk) * 256 ** idx;
+  });
+  return sum;
 }
 
 /* Using reduce method gives us a one-liner */
@@ -1041,8 +1042,8 @@ function getNumForIP(ip) {
 
 function toCamelCase(str) {
   return str.replace(/[_-]\w/g, function (match) {
-    return match.charAt(1).toUpperCase()
-  })
+    return match.charAt(1).toUpperCase();
+  });
 }
 
 /* Take advantage of the implicit return of an arrow function for a one-line solution */
@@ -1079,8 +1080,8 @@ function toCamelCase(str) {
 function countTheBits(int) {
   return int
     .toString(2)
-    .split('')
-    .filter((bit) => bit === '1').length
+    .split("")
+    .filter((bit) => bit === "1").length;
 }
 
 /* Using a regular expression. Note || operator to provide an array so that can use length if there are no matches */
@@ -1115,22 +1116,22 @@ function countTheBits(int) {
 /*--- Process one character at a time ---*/
 function gridTrip(xyArr, moves) {
   // create result array with starting positions
-  var result = [xyArr[0], xyArr[1]]
+  var result = [xyArr[0], xyArr[1]];
   // lookup object for result arr index and multipler for each dir char
-  const lookup = { U: [0, 1], R: [1, 1], D: [0, -1], L: [1, -1] }
-  var idx = 0
+  const lookup = { U: [0, 1], R: [1, 1], D: [0, -1], L: [1, -1] };
+  var idx = 0;
   while (idx < moves.length) {
     // first char of the move string is the direction to be used to access the lookup object
-    var dir = moves[idx]
-    idx++
-    var numString = ''
-    while ('0123456789'.includes(moves[idx]) && idx < moves.length) {
-      numString += moves[idx]
-      idx++
+    var dir = moves[idx];
+    idx++;
+    var numString = "";
+    while ("0123456789".includes(moves[idx]) && idx < moves.length) {
+      numString += moves[idx];
+      idx++;
     }
-    result[lookup[dir][0]] += numString * lookup[dir][1]
+    result[lookup[dir][0]] += numString * lookup[dir][1];
   }
-  return result
+  return result;
 }
 
 /*--- Using regular expressions to break up the moves into an array ---*/
@@ -1174,13 +1175,13 @@ function gridTrip(xyArr, moves) {
 
 /* inefficent solution - does not leverage sorted array */
 function addChecker(nums, total) {
-  var result = false
+  var result = false;
   for (i = 0; i < nums.length - 1; i++) {
     for (j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === total) return true
+      if (nums[i] + nums[j] === total) return true;
     }
   }
-  return result
+  return result;
 }
 
 /* efficent solution - leveraging the sorted array */
@@ -1227,25 +1228,25 @@ function addChecker(nums, total) {
 function totalTaskTime(tasks, numThreads) {
   var time = 0,
     shortest,
-    threads
+    threads;
   while (tasks.length > numThreads) {
     // extract a task for each thread
-    threads = tasks.splice(0, numThreads)
+    threads = tasks.splice(0, numThreads);
     // Find out the time for the task that will finish first.
     // Using the spread operator to provide Math.min with a list of values
-    shortest = Math.min(...threads)
+    shortest = Math.min(...threads);
     // Add the time for that shortest task
-    time += shortest
+    time += shortest;
     // Reduce each task in threads by the shortest task time and
     // remove all of those completed "short" tasks
-    threads = threads.map((t) => t - shortest).filter((t) => t)
+    threads = threads.map((t) => t - shortest).filter((t) => t);
     // Put any remaining tasks back into threads and do it again (loop)...
-    tasks = threads.concat(tasks)
+    tasks = threads.concat(tasks);
   }
   // When num remaining tasks is less or equal to numThreads,
   // we just need to add the time from the longest remaining task.
   // The ternary protects against Math.max returning infinity on an empty array
-  return time + (tasks.length ? Math.max(...tasks) : 0)
+  return time + (tasks.length ? Math.max(...tasks) : 0);
 }
 
 /* One-liner using different 'addition' approach */
@@ -1284,5 +1285,5 @@ module.exports = {
   countTheBits,
   gridTrip,
   addChecker,
-  totalTaskTime
-}
+  totalTaskTime,
+};

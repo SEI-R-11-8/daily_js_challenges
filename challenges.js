@@ -231,7 +231,23 @@ charCount('hello') //=> { h: 1, e: 1, l: 2, o: 1 }
 charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i: 2, s: 2, f: 1, n: 1, t: 2, c: 1, '!': 1 }
 -----------------------------------------------------------------*/
 // Your solution for 09-charCount here:
-function charCount(string) {}
+function charCount(str) {
+  let result = {};
+  for (let i = 0; i < str.length; i++) {
+    let char = str.charAt(i);
+
+    //Had to go to solutions.js for this one, but writing this so I understand what's going on ---
+
+    //the first condition checks to see if that key exists. If it does not, then in the else condition, the key is created and given a value of 1. So if a character in the string, say "h", comes a second time, then that matches the if condition, and the value of "h" is incremented by 1
+    if (result[char]) {
+      result[char]++;
+    } else {
+      result[char] = 1;
+    }
+  }
+  return result;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 10-formatWithPadding
 

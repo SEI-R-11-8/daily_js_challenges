@@ -13,7 +13,7 @@ sayHello() //=> Hello!
 -----------------------------------------------------------------*/
 // Your solution for 00-sayHello (example) here:
 function sayHello() {
-  return `Hello!`;
+  return 'Hello!';
 }
 /*-----------------------------------------------------------------
 Challenge: 01-addOne
@@ -75,7 +75,11 @@ sumNumbers([2, 10, -5]) //=> 7
 sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
-function sumNumbers(nums) {}
+function sumNumbers(nums) {
+  sum = nums.reduce(function (a, num) {
+    return a + num;
+  }, 0);
+}
 /*-----------------------------------------------------------------
 Challenge: 04-addList
 

@@ -103,7 +103,12 @@ add(7,-12) //=> -5
 // Your solution for 04-addList here:
 function addList() {
   let sum = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+  return sum;
 }
+
 /*-----------------------------------------------------------------
 Challenge: 05-computeRemainder
 
@@ -200,7 +205,14 @@ removeEnds('SEI Rocks!'); //=> "DI Rocks"
 removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
-function removeEnds(string) {}
+function removeEnds(string) {
+  let newString = '';
+  if (string.length < 3) {
+    return '';
+  } else {
+    newString = string.pop();
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 09-charCount
 
@@ -241,7 +253,15 @@ formatWithPadding(42, '*', 10); //=> "********42"
 formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
-function formatWithPadding(n, char, length) {}
+function formatWithPadding(n, char, length) {
+  let newString = '';
+  if ((n.length = length)) {
+    return n;
+  } else {
+    while (n.length < length) newString = 'char' + n;
+  }
+  return newString;
+}
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome
 

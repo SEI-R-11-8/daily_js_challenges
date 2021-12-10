@@ -9,10 +9,12 @@ Write a function called sayHello that returns the string "Hello!".
 
 Examples:
 
-sayHello() //=> Hello!
+sayHello() //=> Hello! 
 -----------------------------------------------------------------*/
 // Your solution for 00-sayHello (example) here:
-function sayHello() {}
+function sayHello() {
+  return `Hello!`;
+}
 /*-----------------------------------------------------------------
 Challenge: 01-addOne
 
@@ -28,7 +30,10 @@ addOne(1) //=> 2
 addOne(-5) //=> -4
 -----------------------------------------------------------------*/
 // Your solution for 01-addOne here:
-function addOne(num) {}
+function addOne(num) {
+  num++;
+  return num;
+}
 /*-----------------------------------------------------------------
 Challenge: 02-addTwoNumbers
 
@@ -47,7 +52,10 @@ addTwoNumbers(0, 0) //=> 0
 addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
-function addTwoNumbers(num1, num2) {}
+function addTwoNumbers(num1, num2) {
+  let result = parseInt(num1) + parseInt(num2);
+  return result;
+}
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
 
@@ -66,7 +74,13 @@ sumNumbers([2, 10, -5]) //=> 7
 sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
-function sumNumbers(nums) {}
+function sumNumbers(nums) {
+  let sum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    sum = sum + nums[i];
+  }
+  return sum;
+}
 /*-----------------------------------------------------------------
 Challenge: 04-addList
 
@@ -85,7 +99,11 @@ add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
-function addList() {}
+function addList(...arg) {
+  return arg.reduce((acc, val) => {
+    return acc + val;
+  }, 0);
+}
 /*-----------------------------------------------------------------
 Challenge: 05-computeRemainder
 
@@ -105,7 +123,14 @@ computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
-function computeRemainder(n1, n2) {}
+function computeRemainder(n1, n2) {
+  if (n2 === 0) {
+    return Infinity;
+  } else {
+    let remainder = n1 % n2;
+    return remainder;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 06-range
 
@@ -124,7 +149,18 @@ range(1,1) //=> []
 range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------*/
 // Your solution for 06-range here:
-function range(n1, n2) {}
+function range(n1, n2) {
+  if (n1 > n2) {
+    return `First argument must be less than second`;
+  } else {
+    let range = n2 - n1;
+    let array = [];
+    for (let i = 0; i < range; i++) {
+      array.push(n1 + i);
+    }
+    return array;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
 
@@ -139,7 +175,13 @@ Examples:
 reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES" 
 -----------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
-function reverseUpcaseString(string) {}
+function reverseUpcaseString(string) {
+  let result = ``;
+  for (let i = 0; i < string.length; i++) {
+    result = string[i].toUpperCase() + result;
+  }
+  return result;
+}
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
 
@@ -156,7 +198,17 @@ removeEnds('SEI Rocks!'); //=> "DI Rocks"
 removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
-function removeEnds(string) {}
+function removeEnds(string) {
+  if (string.length < 3) {
+    return ``;
+  } else {
+    let newString = ``;
+    for (let i = 1; i < string.length - 1; i++) {
+      newString = newString + string[i];
+    }
+    return newString;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 09-charCount
 
@@ -721,4 +773,4 @@ module.exports = {
   gridTrip,
   addChecker,
   totalTaskTime
-}
+};

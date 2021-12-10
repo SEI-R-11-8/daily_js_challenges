@@ -99,7 +99,7 @@ Examples:
 add(1) //=> 1
 add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
------------------------------------------------------------------*/
+----------------------------------------------------------------*/
 // Your solution for 04-addList here:
 function addList() {
   let sum = 0;
@@ -206,12 +206,12 @@ removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
 function removeEnds(string) {
+  if (string.length < 3) return '';
   let newString = '';
-  if (string.length < 3) {
-    return '';
-  } else {
-    newString = string.pop();
+  for (let i = 1; i < string.length - 1; i++) {
+    newString += string.charAt(i);
   }
+  return newString;
 }
 /*-----------------------------------------------------------------
 Challenge: 09-charCount

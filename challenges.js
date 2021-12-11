@@ -185,7 +185,6 @@ function reverseUpcaseString(string) {
   // return finalString;
   return string.toUpperCase().split('').reverse().join('');
 }
-console.log(reverseUpcaseString('hello world'));
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
 
@@ -272,7 +271,6 @@ function formatWithPadding(n, char, length) {
       newString = newString + char;
     }
     newString = newString + newN;
-    console.log(newString);
     return newString;
   }
 }
@@ -297,13 +295,33 @@ isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 function isPalindrome(string) {
-  // if (string === string.split('').reverse().join('')) {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
-  return string === string.split('').reverse().join('') ? true : false;
+  // const stringArr = string.toUpperCase().split('');
+  return string
+    .toUpperCase()
+    .split('')
+    .filter((index) => index !== ' ')
+    .join() ===
+    string
+      .toUpperCase()
+      .split('')
+      .filter((index) => index !== ' ')
+      .reverse()
+      .join()
+    ? true
+    : false;
 }
+
+console.log(
+  'A nut for a jar of tuna'
+    .toUpperCase()
+    .split('')
+    .filter((index) => index !== ' ')
+    .reverse(),
+  'A nut for a jar of tuna'
+    .toUpperCase()
+    .split('')
+    .filter((index) => index !== ' ')
+);
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
 

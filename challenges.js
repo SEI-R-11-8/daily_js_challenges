@@ -295,33 +295,31 @@ isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 function isPalindrome(string) {
-  // const stringArr = string.toUpperCase().split('');
-  return string
+  const forwardArr = string
     .toUpperCase()
     .split('')
-    .filter((index) => index !== ' ')
-    .join() ===
-    string
-      .toUpperCase()
-      .split('')
-      .filter((index) => index !== ' ')
-      .reverse()
-      .join()
-    ? true
-    : false;
+    .filter((char) => char !== ' ');
+  const forwardString = forwardArr.join();
+  const backwardArr = forwardArr.reverse();
+  const backwardString = backwardArr.join();
+  console.log(forwardArr, backwardArr);
+  console.log(forwardString, backwardString);
+  return forwardString === backwardString ? true : false;
+  // return string
+  //   .toUpperCase()
+  //   .split('')
+  //   .filter((index) => index !== ' ')
+  //   .join() ===
+  //   string
+  //     .toUpperCase()
+  //     .split('')
+  //     .filter((index) => index !== ' ')
+  //     .reverse()
+  //     .join()
+  //   ? true
+  //   : false;
 }
 
-console.log(
-  'A nut for a jar of tuna'
-    .toUpperCase()
-    .split('')
-    .filter((index) => index !== ' ')
-    .reverse(),
-  'A nut for a jar of tuna'
-    .toUpperCase()
-    .split('')
-    .filter((index) => index !== ' ')
-);
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
 

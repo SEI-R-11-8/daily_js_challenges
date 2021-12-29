@@ -394,9 +394,7 @@ function mumble(string) {
     i++;
   }
 
-  let newString = newArray.join("-");
-
-  return newString;
+  return newArray.join("-");
 }
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
@@ -415,7 +413,13 @@ fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]) //=> { a: 1, b: 2, c: 3 }
 fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sally", age: 24 }
 -----------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
-function fromPairs(arr) {}
+function fromPairs(arr) {
+  let newObj = {};
+  arr.map((ele) => {
+    newObj[ele[0]] = ele[1];
+  });
+  return newObj;
+}
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
 

@@ -437,7 +437,29 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-function mergeObjects(obj1, obj2) {}
+function mergeObjects(obj1, ...obj2) {
+  return Object.assign(obj1, ...obj2);
+}
+
+// NOTE: I was confused because I thought the parameters, obj1 and obj2, were static. I thought part of the challenge was how to come up with a solution with two fixed parameters, but with the possibility of more than two arguments being passed in. The solution below works, although it doesn't pass the test. But it's good to know that the spread operator can be applied to arguments!
+
+//function mergeObjects(obj1, obj2) {
+// let newArr = []
+//   let newObj = {}
+
+//   for(i = 0; i < arguments.length; i++) {
+//     newArr.push(arguments[i])
+//   }
+
+//   for(j = 0; j < newArr.length; j++) {
+
+//     Object.assign(newObj, newArr[j])
+//   }
+
+//   return newObj
+
+//}
+
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
 

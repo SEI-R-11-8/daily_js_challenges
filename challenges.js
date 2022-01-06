@@ -184,9 +184,9 @@ reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES"
 // Your solution for 07-reverseUpcaseString here:
 //NOT TAKING AND I DONT' KNOW WHY
 function reverseUpcaseString(string) {
-  let revString = '';
-  for (let i = string.length - 1; i >=0; i--) {
-    revString = string.charAt(i).toUpperCase() + results
+  let revString = ''
+  for (var i = string.length - 1; i >= 0; i--) {
+    revString += string[i].toUpperCase()
   }
   return revString;
 }

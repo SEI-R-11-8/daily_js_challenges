@@ -198,7 +198,8 @@ Difficulty: Basic
 
 Prompt:
 
-- Write a function called removeEnds that accepts a single string argument, then returns the a string with the first and last characters removed.
+- Write a function called removeEnds that accepts a single string argument, 
+  then returns the a string with the first and last characters removed.
 - If the length of the string argument is less than 3, return an empty string.
 
 Examples:
@@ -207,7 +208,10 @@ removeEnds('SEI Rocks!'); //=> "DI Rocks"
 removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
-function removeEnds(string) {}
+function removeEnds(string) {
+  if (string.length <3) return ''
+  return string.slice(1,-1)
+}
 /*-----------------------------------------------------------------
 Challenge: 09-charCount
 
@@ -215,18 +219,33 @@ Difficulty: Basic
 
 Prompt:
 
-- Write a function named charCount that accepts a single string argument and returns an object that represents the count of each character in the string.
-- The returned object should have keys that represent the character with its value set to the how many times the character appears in the string argument.
+- Write a function named charCount that accepts a single string argument 
+and returns an object that represents the count of each character in the string.
+
+- The returned object should have keys that represent the character with 
+its value set to the how many times the character appears in the string argument.
 - Upper and lower case characters should be counted separately.
 - Space characters should be counted too.
 
 Examples:
 
 charCount('hello') //=> { h: 1, e: 1, l: 2, o: 1 }
-charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i: 2, s: 2, f: 1, n: 1, t: 2, c: 1, '!': 1 }
+charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, 
+y: 1, ' ': 2, i: 2, s: 2, f: 1, n: 1, t: 2, c: 1, '!': 1 }
 -----------------------------------------------------------------*/
 // Your solution for 09-charCount here:
-function charCount(string) {}
+function charCount(string) {
+  let result = {}
+  for (var i = 0; i < string.length; i++) {
+    let character = string.charAt(i)
+    if (result[character]) {
+      result[character]++
+    } else {
+      result[character] = 1
+    }
+  }
+  return result
+}
 /*-----------------------------------------------------------------
 Challenge: 10-formatWithPadding
 
@@ -248,7 +267,21 @@ formatWithPadding(42, '*', 10); //=> "********42"
 formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
-function formatWithPadding(n, char, length) {}
+function formatWithPadding(n, char, length) {
+  let array = []
+  const nString = n.toString()
+  const padding = length - nString.length
+  for (i = 0; i< padding; i++) {
+    array.push(char)
+  }
+  for (i=0; i<nString.length; i++) {
+    array.push(nString[i])
+  }
+  return array.reduce((acc, item) => {
+    acc = acc + item
+    return acc
+  })
+}
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome
 

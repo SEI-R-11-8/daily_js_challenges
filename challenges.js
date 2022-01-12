@@ -302,8 +302,6 @@ function isPalindrome(string) {
   const forwardString = forwardArr.join();
   const backwardArr = forwardArr.reverse();
   const backwardString = backwardArr.join();
-  console.log(forwardArr, backwardArr);
-  console.log(forwardString, backwardString);
   return forwardString === backwardString ? true : false;
   // return string
   //   .toUpperCase()
@@ -375,7 +373,19 @@ mumble('121'); //=> '1-22-111'
 mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
-function mumble(string) {}
+function mumble(string) {
+  toArray = string.split('');
+  let newArray = [];
+  for (let i = 0; i < toArray.length; i++) {
+    for (let j = 0; j <= i; j++) {
+      newArray.push(toArray[i]);
+    }
+    newArray.push('-');
+  }
+  newArray.pop();
+  const newString = newArray.join('');
+  return newString;
+}
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
 
@@ -393,7 +403,18 @@ fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]) //=> { a: 1, b: 2, c: 3 }
 fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sally", age: 24 }
 -----------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
-function fromPairs(arr) {}
+function fromPairs(arr) {
+  const obj = arr.map((pair) => {
+    const newObj = Object.assign({}, pair);
+    console.log(newObj);
+  });
+  return obj;
+}
+fromPairs([
+  ['a', 1],
+  ['b', 2],
+  ['c', 3]
+]);
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
 

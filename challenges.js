@@ -684,7 +684,73 @@ primeFactors(105) //=> [3, 5, 7]
 primeFactors(200) //=> [2, 2, 2, 5, 5]
 -----------------------------------------------------------------*/
 // Your solution for 21-primeFactors here:
-function primeFactors(n) {}
+function primeFactors(n) {
+  let factors = [];
+
+  if (Number.isInteger(n) === true && n > 1) {
+    function isPrime(num) {
+      let prime = false;
+      if (Number.isInteger(num) === true && num > 1) {
+        prime = true;
+        for (i = 2; i < num; i++) {
+          console.log(num, '/', i, '=', num % i);
+          if (num % i === 0) {
+            return (prime = false);
+          }
+        }
+      }
+      return prime;
+    }
+
+    const findLargestFactor = (num) => {
+      for (i = num - 1; i > 1; i--) {
+        console.log(num, '/', i, '=', num % i);
+        if (num % i === 0) {
+          factors.push(num / i);
+          return i;
+        }
+      }
+    };
+
+    if (isPrime(n) === true) {
+      factors.push(n);
+    } else {
+      let largestFactor = findLargestFactor(n);
+      console.log('largestFactor:', largestFactor);
+      if (isPrime(largestFactor) === true) {
+        factors.push(largestFactor);
+      } else {
+        let nextLargestFactor = findLargestFactor(largestFactor);
+        console.log('nextLargestFactor:', nextLargestFactor);
+        if (isPrime(nextLargestFactor) === true) {
+          factors.push(nextLargestFactor);
+        } else {
+          let largestFactor3 = findLargestFactor(nextLargestFactor);
+          console.log('largestFactor3:', largestFactor3);
+          if (isPrime(largestFactor3) === true) {
+            factors.push(largestFactor3);
+          } else {
+            let largestFactor4 = findLargestFactor(largestFactor3);
+            console.log('largestFactor4:', largestFactor4);
+            if (isPrime(largestFactor4) === true) {
+              factors.push(largestFactor4);
+            } else {
+              let largestFactor5 = findLargestFactor(largestFactor4);
+              console.log('largestFactor5:', largestFactor5);
+              if (isPrime(largestFactor5) === true) {
+                factors.push(largestFactor5);
+              } else {
+                let largestFactor6 = findLargestFactor(largestFactor5);
+                console.log('largestFactor6:', largestFactor6);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return factors;
+}
 /*-----------------------------------------------------------------
 Challenge: 22-intersection
 

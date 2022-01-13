@@ -771,7 +771,19 @@ intersection(['a', 1], [true, 'a', 15]) //=> ['a']
 intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------*/
 // Your solution for 22-intersection here:
-function intersection(arr1, arr2) {}
+// NEED TO FIX THIS, it doesn't work for example 3
+function intersection(arr1, arr2) {
+  let overlap = [];
+  for (i2 = 0; i2 < arr2.length; i2++) {
+    for (i = 0; i < arr1.length; i++) {
+      if (arr2[i2] === arr1[i]) {
+        overlap.push(arr2[i2]);
+        break;
+      }
+    }
+  }
+  return overlap;
+}
 /*-----------------------------------------------------------------
 Challenge: 23-balancedBrackets
 

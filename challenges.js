@@ -529,7 +529,9 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 //=> ["1 - rose", "2 - tulip", "3 - daisy"]
 -----------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
-function mapArray(arr, cb) {}
+function mapArray(arr, cb) {
+  return arr.map(cb);
+}
 /*-----------------------------------------------------------------
 Challenge: 18-reduceArray
 

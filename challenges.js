@@ -805,7 +805,41 @@ balancedBrackets( '[(])' ) // => false
 balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
-function balancedBrackets(string) {}
+function balancedBrackets(string) {
+  // THIS NO WORK YET
+  function remove(str) {
+    let arr = [...str];
+    console.log(arr);
+    for (i = 0; i < arr.length; i++) {
+      for (x = i + 1; x < arr.length; x++) {
+        if (arr[i] === '(' && arr[x] === ')') {
+          arr.splice(x, 1);
+          arr.splice(i, 1);
+          return arr;
+        }
+      }
+      if (i === arr.length - 1) {
+        return arr;
+      }
+    }
+  }
+  let first = remove(string);
+  console.log(first);
+  if (first.length < 1) {
+    return true;
+  }
+  let second = remove(first);
+  if (second.length < 1) {
+    return true;
+  }
+  let third = remove(second);
+  console.log('third:', third);
+  if (third.length < 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
 
@@ -831,7 +865,23 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ) // => true
 isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
-function isWinningTicket(arr) {}
+function isWinningTicket(arr) {
+  let found = false;
+  const search = (array) => {
+    let str = array[0];
+    let num = array[1];
+    let char = String.fromCharCode(num);
+    for (i = 0; i < str.length; i++) {
+      if (str[i] === char) {
+        found = true;
+      }
+    }
+  };
+  for (i = 0; i < arr.length; i++) {
+    search(arr[i]);
+  }
+  return found;
+}
 /*-----------------------------------------------------------------
 Challenge: 25-getNumForIP
 

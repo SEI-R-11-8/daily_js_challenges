@@ -289,7 +289,8 @@ Difficulty: Intermediate
 
 Prompt:
 
-- Write a function called isPalindrome that accepts a single string argument, then returns true or false depending upon whether or not the string is a palindrome.
+- Write a function called isPalindrome that accepts a single string argument, 
+    then returns true or false depending upon whether or not the string is a palindrome.
 - A palindrome is a word or phrase that is the same forward or backward.
 - Casing and spaces are not included when considering whether or not a string is a palindrome.
 - If the length of the string is 0 or 1, return true.
@@ -302,7 +303,10 @@ isPalindrome('A nut for a jar of tuna'); //=> true
 isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
-function isPalindrome(string) {}
+function isPalindrome(string) {
+
+}
+
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
 
@@ -310,7 +314,8 @@ Difficulty: Intermediate
 
 Prompt:
 
-In information theory, the hamming distance refers to the count of the differences between two strings of equal length.  It is used in computer science for such things as implementing "fuzzy search"  capability.
+In information theory, the hamming distance refers to the count of the differences between two strings of equal length. 
+It is used in computer science for such things as implementing "fuzzy search"  capability.
 
 - Write a function named hammingDistance that accepts two arguments which are both strings of equal length.
 - The function should return the count of the symbols (characters, numbers, etc.) at the same position within each string that are different.

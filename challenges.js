@@ -890,7 +890,19 @@ totalTaskTime( [2, 2, 3, 3, 4, 4], 2 ) //=> 9
 totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------*/
 // Your solution for 30- here:
-function totalTaskTime(arr, n) {}
+function totalTaskTime(arr, n) {
+  let duration = 0,
+    quickest,
+    nThreads;
+  while (arr.length > n) {
+    nThreads = arr.splice(0, n);
+    quickest = Math.min(...nThreads);
+    duration += quickest;
+    nThreads = nThreads.map((t) => t - quickest).filter((t) => t);
+    arr = nThreads.concat(arr);
+  }
+  return duration + (arr.length ? Math.max(...arr) : 0);
+}
 
 /*-----------------------------------------------------------------*/
 module.exports = {

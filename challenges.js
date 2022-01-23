@@ -85,21 +85,16 @@ function sumNumbers(nums) {
 }
 /*-----------------------------------------------------------------
 Challenge: 04-addList
-
 Difficulty: Basic
-
 Prompt:
-
 - Write a function called addList that accepts any quantity of numbers as arguments, adds them together and returns the resulting sum.
 - Assume all parameters will be numbers.
 - If called with no arguments, return 0 (zero).
-
 Examples:
-
 add(1) //=> 1
 add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
-----------------------------------------------------------------*/
+-----------------------------------------------------------------*/
 // Your solution for 04-addList here:
 function addList() {
   let sum = 0;
@@ -108,21 +103,15 @@ function addList() {
   }
   return sum;
 }
-
 /*-----------------------------------------------------------------
 Challenge: 05-computeRemainder
-
 Difficulty: Basic
-
 Prompt:
-
 - Write a function named computeRemainder that accepts two numeric arguments and returns the remainder of the division of those two numbers.
 - The first argument should be the dividend and the second argument should be the divisor.
 - If a 0 is passed in as the second argument you should return JavaScript's special numeric value: Infinity.
 - For extra fun, complete this challenge without using the modulus (%) operator.
-
 Examples:
-
 computeRemainder(10,2) //=> 0
 computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
@@ -140,16 +129,11 @@ function computeRemainder(n1, n2) {
 }
 /*-----------------------------------------------------------------
 Challenge: 06-range
-
 Difficulty: basic
-
 Prompt:
-
 - Write a function called range that accepts two integers as arguments and returns an array of integers starting with the first argument up to one less than the second argument.
 - The range function must be called with the first argument less than or equal to the second argument, otherwise return the string "First argument must be less than second".
-
 Examples:
-
 range(1,4) //=> [1,2,3]
 range(-2, 3) //=> [-2,-1,0,1,2]
 range(1,1) //=> []
@@ -254,11 +238,9 @@ formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 function formatWithPadding(n, char, length) {
-  let newString = '';
-  if ((n.length = length)) {
-    return n;
-  } else {
-    while (n.length < length) newString = 'char' + n;
+  let newString = n.toFixed(0);
+  while (newString.length < length) {
+    newString = char + n;
   }
   return newString;
 }
@@ -304,7 +286,14 @@ hammingDistance('!!!!', '****'); //=> 4
 hammingDistance('abc', 'ab'); //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
-function hammingDistance(str1, str2) {}
+function hammingDistance(str1, str2) {
+  if (str1.length !== str2.length) {
+    return 'NaN';
+  }
+  let count = 1;
+  for (i = 0; i < str1.length; i++) if (str1[i] !== str2[i]) count++;
+  return count;
+}
 /*-----------------------------------------------------------------
 Challenge: 13-mumble
 

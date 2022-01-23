@@ -352,7 +352,13 @@ fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]) //=> { a: 1, b: 2, c: 3 }
 fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sally", age: 24 }
 -----------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
-function fromPairs(arr) {}
+function fromPairs(arr) {
+  let response = {};
+  arr.forEach(function (kvArr) {
+    response[kvArr[0]] = kvArr[1];
+  });
+  return response;
+}
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
 
@@ -370,7 +376,9 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-function mergeObjects(obj1, obj2) {}
+function mergeObjects(target, ...objects) {
+  return Object.assign(target, ...objects);
+}
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
 
@@ -404,7 +412,17 @@ findHighestPriced([
 //=> { sku: 'b2', price: 50 }
 -----------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
-function findHighestPriced(arr) {}
+function findHighestPriced(arr) {
+  let expensive = 0;
+  let resObj;
+  arr.forEach(function (item) {
+    if (item.price > expensive) {
+      expensive = item.price;
+      resObj = item;
+    }
+  });
+  return resObj;
+}
 /*-----------------------------------------------------------------
 Challenge: 17-mapArray
 

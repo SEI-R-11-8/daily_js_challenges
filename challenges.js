@@ -191,7 +191,9 @@ removeEnds('SEI Rocks!'); //=> "DI Rocks"
 removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
-function removeEnds(string) {}
+function removeEnds(string) {
+  return string.substr(1, string.length - 2);
+}
 /*-----------------------------------------------------------------
 Challenge: 09-charCount
 
@@ -210,7 +212,18 @@ charCount('hello') //=> { h: 1, e: 1, l: 2, o: 1 }
 charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i: 2, s: 2, f: 1, n: 1, t: 2, c: 1, '!': 1 }
 -----------------------------------------------------------------*/
 // Your solution for 09-charCount here:
-function charCount(string) {}
+function charCount(string) {
+  let result = {};
+  for (let i = 0; i < string.length; i++) {
+    let char = string.charAt(i);
+    if (result[char]) {
+      result[char]++;
+    } else {
+      result[char] = 1;
+    }
+  }
+  return result;
+}
 /*-----------------------------------------------------------------
 Challenge: 10-formatWithPadding
 

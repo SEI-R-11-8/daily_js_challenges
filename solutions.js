@@ -82,10 +82,14 @@ function addTwoNumbers(num1, num2) {
   sumNumbers([]) //=> 0
   -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
-
+const sumNumbers = (nums)=>{
+  return nums.reduce((acc, num)=>{
+    return acc+num;
+  }, 0)
+}
 /*--- okay solution ---*/
 function sumNumbers(nums) {
-  var sum = 0
+  var sum = 0``
   for (var i = 0; i < nums.length; i++) {
     sum += nums[i]
   }
@@ -1256,7 +1260,7 @@ function totalTaskTime(tasks, numThreads) {
 module.exports = {
   sayHello,
   addOne,
-  addTwoNumbers,
+  addTwoNumbers,``
   sumNumbers,
   addList,
   computeRemainder,

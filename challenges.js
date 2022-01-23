@@ -784,7 +784,12 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
-function countTheBits(n) {}
+function countTheBits(n) {
+  return n
+    .toString(2)
+    .split('')
+    .filter((bit) => bit === '1').length;
+}
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 
@@ -808,7 +813,22 @@ gridTrip( [5, 10], 'D5L15U2' ) //-> [2, -5]
 gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 -----------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
-function gridTrip(arr, string) {}
+function gridTrip(arr, string) {
+  let res = [arr[0], arr[1]];
+  const lookup = { U: [0, 1], R: [1, 1], D: [0, -1], L: [1, -1] };
+  let index = 0;
+  while (index < string.length) {
+    let dir = string[index];
+    index++;
+    let numString = '';
+    while ('0123456789'.includes(string[index]) && index < string.length) {
+      numString += string[index];
+      index++;
+    }
+    res[lookup[dir][0]] += numString * lookup[dir][1];
+  }
+  return res;
+}
 /*-----------------------------------------------------------------
 Challenge: 29-addChecker
 
@@ -834,7 +854,15 @@ addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
-function addChecker(arr, n) {}
+function addChecker(arr, n) {
+  let res = false;
+  for (i = 0; i < arr.length - 1; i++) {
+    for (m = i + 1; m < arr.length; m++) {
+      if (arr[i] + arr[m] === n) return true;
+    }
+  }
+  return res;
+}
 /*-----------------------------------------------------------------
 Challenge: 30-totalTaskTime
 

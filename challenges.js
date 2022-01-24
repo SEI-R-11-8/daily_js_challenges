@@ -246,7 +246,13 @@ formatWithPadding(42, '*', 10); //=> "********42"
 formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
-function formatWithPadding(n, char, length) { }
+function formatWithPadding(n, char, length) {
+  n = n + ''
+  while (n.length < length) {
+    n = char + n
+  }
+  return n;
+}
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome
 

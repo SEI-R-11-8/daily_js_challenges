@@ -169,7 +169,13 @@ Examples:
 reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES" 
 -----------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
-function reverseUpcaseString(string) { }
+function reverseUpcaseString(string) {
+  let splitString = string.split("");
+  let revString = splitString.reverse("");
+  let result = revString.join("");
+
+  return result.toUpperCase("");
+}
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
 

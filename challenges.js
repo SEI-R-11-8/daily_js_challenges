@@ -305,7 +305,15 @@ hammingDistance('!!!!', '****'); //=> 4
 hammingDistance('abc', 'ab'); //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
-function hammingDistance(str1, str2) { }
+function hammingDistance(str1, str2) {
+  if (str1.length !== str2.length)
+    return NaN;
+
+  string1 = str1.split('')
+  string2 = str2.split('')
+  string3 = string1.filter((char1, index) => string2[index] !== char1);
+  return string3.length
+}
 /*-----------------------------------------------------------------
 Challenge: 13-mumble
 

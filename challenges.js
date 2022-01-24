@@ -121,7 +121,11 @@ computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
-function computeRemainder(n1, n2) { }
+function computeRemainder(n1, n2) {
+  let num4 = n1 % n2;
+  if (n2 === 0) return Infinity;
+  return num4;
+}
 /*-----------------------------------------------------------------
 Challenge: 06-range
 

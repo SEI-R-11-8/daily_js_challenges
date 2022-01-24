@@ -15,6 +15,7 @@ sayHello() //=> Hello!
 function sayHello() {
   return 'Hello!';
 }
+
 /*-----------------------------------------------------------------
 Challenge: 01-addOne
 
@@ -33,6 +34,7 @@ addOne(-5) //=> -4
 function addOne(num) {
   return num + 1;
 }
+
 /*-----------------------------------------------------------------
 Challenge: 02-addTwoNumbers
 
@@ -58,6 +60,7 @@ function addTwoNumbers(num1, num2) {
     return NaN;
   }
 }
+
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
 
@@ -82,6 +85,7 @@ function sumNumbers(nums) {
   }, 0);
   return sum;
 }
+
 /*-----------------------------------------------------------------
 Challenge: 04-addList
 
@@ -105,6 +109,7 @@ function addList(...numbers) {
     return acc + val;
   }, 0);
 }
+
 /*-----------------------------------------------------------------
 Challenge: 05-computeRemainder
 
@@ -134,6 +139,7 @@ function computeRemainder(n1, n2) {
     return remainder;
   }
 }
+
 /*-----------------------------------------------------------------
 Challenge: 06-range
 
@@ -163,6 +169,7 @@ function range(n1, n2) {
     return rangeArray;
   }
 }
+
 /*-----------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
 
@@ -185,6 +192,7 @@ function reverseUpcaseString(string) {
   // return finalString;
   return string.toUpperCase().split('').reverse().join('');
 }
+
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
 
@@ -209,6 +217,7 @@ function removeEnds(string) {
     return string.slice(1, lastChar);
   }
 }
+
 /*-----------------------------------------------------------------
 Challenge: 09-charCount
 
@@ -239,6 +248,7 @@ function charCount(string) {
   }
   return newObj;
 }
+
 /*-----------------------------------------------------------------
 Challenge: 10-formatWithPadding
 
@@ -274,6 +284,7 @@ function formatWithPadding(n, char, length) {
     return newString;
   }
 }
+
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome
 
@@ -354,6 +365,7 @@ function hammingDistance(str1, str2) {
     return distance;
   }
 }
+
 /*-----------------------------------------------------------------
 Challenge: 13-mumble
 
@@ -386,6 +398,7 @@ function mumble(string) {
   const newString = newArray.join('');
   return newString;
 }
+
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
 
@@ -410,6 +423,7 @@ function fromPairs(arr) {
   }
   return obj;
 }
+
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
 
@@ -465,7 +479,18 @@ findHighestPriced([
 //=> { sku: 'b2', price: 50 }
 -----------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
-function findHighestPriced(arr) {}
+function findHighestPriced(arr) {
+  let highestPriced = 0;
+  let priceyObj;
+  arr.forEach((obj) => {
+    if (obj.price > highestPriced) {
+      highestPriced = obj.price;
+      priceyObj = obj;
+    }
+  });
+  return priceyObj;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 17-mapArray
 

@@ -308,6 +308,9 @@ function isPalindrome(string) {
   for (let i = 0; i < string.length; i++) {
     if (string.charAt(i) !== ' ') newStr = newStr + string.charAt(i);
   }
+  // const newStr = [string].filter((char) => {
+  //   char !== ' ';
+  // });
   let i = 0;
   let l = newStr.length - 1;
   while (i < l && newStr.charAt(i) === newStr.charAt(l)) {
@@ -339,7 +342,19 @@ hammingDistance('!!!!', '****'); //=> 4
 hammingDistance('abc', 'ab'); //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
-function hammingDistance(str1, str2) {}
+function hammingDistance(str1, str2) {
+  if (str1.length !== str2.length) {
+    return NaN;
+  } else {
+    let count = 0;
+    for (let i = 0; i < str1.length; i++) {
+      if (str1.charAt(i) !== str2.charAt(i)) {
+        count++;
+      }
+    }
+    return count;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 13-mumble
 

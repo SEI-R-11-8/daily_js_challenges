@@ -13,7 +13,7 @@ sayHello() //=> Hello!
 -----------------------------------------------------------------*/
 // Your solution for 00-sayHello (example) here:
 function sayHello() {
-  return 'Hello!';
+	return 'Hello!';
 }
 /*-----------------------------------------------------------------
 Challenge: 01-addOne
@@ -31,7 +31,7 @@ addOne(-5) //=> -4
 -----------------------------------------------------------------*/
 // Your solution for 01-addOne here:
 function addOne(num) {
-  return num + 1;
+	return num + 1;
 }
 
 /*-----------------------------------------------------------------
@@ -52,7 +52,12 @@ addTwoNumbers(0, 0) //=> 0
 addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
-function addTwoNumbers(num1, num2) {}
+function addTwoNumbers(num1, num2) {
+	if (num1 !== Number || num2 !== Number) {
+		return NaN;
+	} else return num1 + num2;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
 
@@ -695,35 +700,35 @@ function totalTaskTime(arr, n) {}
 
 /*-----------------------------------------------------------------*/
 module.exports = {
-  sayHello,
-  addOne,
-  addTwoNumbers,
-  sumNumbers,
-  addList,
-  computeRemainder,
-  range,
-  reverseUpcaseString,
-  removeEnds,
-  charCount,
-  formatWithPadding,
-  isPalindrome,
-  hammingDistance,
-  mumble,
-  fromPairs,
-  mergeObjects,
-  findHighestPriced,
-  mapArray,
-  reduceArray,
-  flatten,
-  isPrime,
-  primeFactors,
-  intersection,
-  balancedBrackets,
-  isWinningTicket,
-  getNumForIP,
-  toCamelCase,
-  countTheBits,
-  gridTrip,
-  addChecker,
-  totalTaskTime
+	sayHello,
+	addOne,
+	addTwoNumbers,
+	sumNumbers,
+	addList,
+	computeRemainder,
+	range,
+	reverseUpcaseString,
+	removeEnds,
+	charCount,
+	formatWithPadding,
+	isPalindrome,
+	hammingDistance,
+	mumble,
+	fromPairs,
+	mergeObjects,
+	findHighestPriced,
+	mapArray,
+	reduceArray,
+	flatten,
+	isPrime,
+	primeFactors,
+	intersection,
+	balancedBrackets,
+	isWinningTicket,
+	getNumForIP,
+	toCamelCase,
+	countTheBits,
+	gridTrip,
+	addChecker,
+	totalTaskTime,
 };

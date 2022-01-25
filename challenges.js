@@ -622,7 +622,21 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
-function isPrime(n) {}
+function isPrime(n) {
+  let prime = true;
+  // console.log(0 < Math.ceil(n) - n);
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      prime = false;
+    }
+  }
+  if (Math.ceil(n) - n > 0) {
+    prime = false;
+  } else if (n <= 1) {
+    prime = false;
+  }
+  return prime;
+}
 /*-----------------------------------------------------------------
 Challenge: 21-primeFactors
 

@@ -303,27 +303,17 @@ isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 function isPalindrome(string) {
-  string.toLowerCase();
+  let i = 0;
+  string = string.toLowerCase();
   while (string.includes(' ')) string = string.replace(' ', '');
-
-  // let str = '';
-  // for (let i = 0; i < string.length; i++) {
-  //   if (string.charAt(i) != ' ') {
-  //     str += string.charAt(i);
-  //   }
-  // }
   if (string === '') {
     return true;
   }
-  for (let i = 0; i <= string.length; i++) {
-    for (let j = string.length - 1; j >= string.length; j--) {
-      if (string[i] === string[j]) {
-        string.removeCharAt(i);
-        string.removeCharAt(j);
-        // return isPalindrome(string);
-      }
+  for (let j = string.length - 1; j >= string.length / 2; j--) {
+    if (string.charAt(i) !== string.charAt(j)) {
       return false;
     }
+    i++;
   }
   return true;
 }

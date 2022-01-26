@@ -907,7 +907,29 @@ getNumForIP( '192.156.99.15' ) // => 3231474447
 getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
-function getNumForIP(bits) {}
+function getNumForIP(bits) {
+  let arr = bits.split('.');
+  let sum = 0;
+  let numArr = arr.map((str, index) => {
+    let num = parseInt(str);
+    switch (index) {
+      case 0:
+        num = num * Math.pow(256, 3);
+        break;
+      case 1:
+        num = num * Math.pow(256, 2);
+        break;
+      case 2:
+        num = num * Math.pow(256, 1);
+        break;
+      case 3:
+        num = num * Math.pow(256, 0);
+        break;
+    }
+    sum += num;
+  });
+  return sum;
+}
 /*-----------------------------------------------------------------
 Challenge: 26-toCamelCase
 
@@ -932,7 +954,37 @@ toCamelCase( 'Mama-mia' ) // => 'MamaMia'
 toCamelCase( 'A_b_c' ) // => 'ABC'
 -----------------------------------------------------------------*/
 // Your solution for 26-toCamelCase here:
-function toCamelCase(string) {}
+function toCamelCase(string) {
+  let removeIndexes = [];
+  makeCapital = (match, offset, string) => {
+    removeIndexes.push(offset + 1);
+    return string[offset + 1].toUpperCase();
+    // return string.charAt(0).toUpperCase() + string.slice(1, offset);
+  };
+
+  const regex = /_|-/g;
+  let camel = string.replace(regex, makeCapital);
+  console.log(camel);
+  console.log(removeIndexes);
+  let finalCamel = '';
+  switch (removeIndexes.length) {
+    case 0:
+      finalCamel = camel;
+      break;
+    case 1:
+      let camel11 = camel.slice(0, removeIndexes[0]);
+      let camel21 = camel.slice(removeIndexes[0] + 1, camel.length);
+      finalCamel = camel11.concat(camel21);
+      break;
+    case 2:
+      let camel1 = camel.slice(0, removeIndexes[0]);
+      let camel2 = camel.slice(removeIndexes[0] + 1, removeIndexes[1]);
+      let camel3 = camel.slice(removeIndexes[1] + 1, camel.length);
+      finalCamel = camel1.concat(camel2, camel3);
+  }
+
+  return finalCamel;
+}
 /*-----------------------------------------------------------------
 Challenge: 27-countTheBits
 
@@ -958,7 +1010,16 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
-function countTheBits(n) {}
+function countTheBits(n) {
+  let binary = n.toString(2);
+  let sum = 0;
+  for (i = 0; i < binary.length; i++) {
+    if (binary[i] === '1') {
+      sum++;
+    }
+  }
+  return sum;
+}
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 

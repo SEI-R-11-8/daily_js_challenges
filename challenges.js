@@ -33,7 +33,9 @@ addOne(1) //=> 2
 addOne(-5) //=> -4
 -----------------------------------------------------------------*/
 // Your solution for 01-addOne here:
-function addOne(num) {}
+function addOne(num) {
+  return num + 1;
+}
 /*-----------------------------------------------------------------
 Challenge: 02-addTwoNumbers
 
@@ -52,7 +54,13 @@ addTwoNumbers(0, 0) //=> 0
 addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
-function addTwoNumbers(num1, num2) {}
+function addTwoNumbers(num1, num2) {
+  if (num1 === 'number' && num2 === 'number') {
+    return num1 + num2;
+  } else {
+    return NaN;
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
 
@@ -71,7 +79,13 @@ sumNumbers([2, 10, -5]) //=> 7
 sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
-function sumNumbers(nums) {}
+function sumNumbers(nums) {
+  let sum = 0;
+  nums.forEach(function (num) {
+    sum += num;
+  });
+  return sum;
+}
 /*-----------------------------------------------------------------
 Challenge: 04-addList
 
@@ -222,8 +236,8 @@ isPalindrome('rotor'); //=> true
 isPalindrome('A nut for a jar of tuna'); //=> true
 isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
-// Your solution for 11-isPalindrome here:
 function isPalindrome(string) {}
+// Your solution for 11-isPalindrome here:
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
 

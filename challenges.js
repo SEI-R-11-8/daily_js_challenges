@@ -369,7 +369,25 @@ mumble('121'); //=> '1-22-111'
 mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
-function mumble(string) {}
+function mumble(string) {
+  let str = '';
+  if (string.length === 1) {
+    return string;
+  }
+  for (let i = 0; i < string.length; i++) {
+    let num = 0;
+    theChar = string.charAt(i);
+    // str += theChar;
+    while (i >= num) {
+      str += theChar;
+      num++;
+    }
+    if (i != string.length - 1) {
+      str += '-';
+    }
+  }
+  return str;
+}
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
 

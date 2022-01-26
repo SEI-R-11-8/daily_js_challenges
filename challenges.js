@@ -238,10 +238,14 @@ charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i:
 -----------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 function charCount(string) {
-  let arr = [];
-  let count = 0;
+  let arr = {};
   for (let i = 0; i < string.length; i++) {
-    arr.push(string.charAt(i));
+    let newChar = string.charAt(i);
+    if (arr[newChar]) {
+      arr[newChar]++;
+    } else {
+      arr[newChar] = 1;
+    }
   }
   return arr;
 }
@@ -266,7 +270,18 @@ formatWithPadding(42, '*', 10); //=> "********42"
 formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
-function formatWithPadding(n, char, length) {}
+function formatWithPadding(n, char, length) {
+  let str = n.toString();
+  console.log(str);
+  if (str.length >= length) {
+    return n.toString();
+  }
+  for (let i = str.length; i < length; i++) {
+    str = char + str;
+  }
+
+  return str;
+}
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome
 
@@ -287,7 +302,31 @@ isPalindrome('A nut for a jar of tuna'); //=> true
 isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
-function isPalindrome(string) {}
+function isPalindrome(string) {
+  string.toLowerCase();
+  while (string.includes(' ')) string = string.replace(' ', '');
+
+  // let str = '';
+  // for (let i = 0; i < string.length; i++) {
+  //   if (string.charAt(i) != ' ') {
+  //     str += string.charAt(i);
+  //   }
+  // }
+  if (string === '') {
+    return true;
+  }
+  for (let i = 0; i <= string.length; i++) {
+    for (let j = string.length - 1; j >= string.length; j--) {
+      if (string[i] === string[j]) {
+        string.removeCharAt(i);
+        string.removeCharAt(j);
+        // return isPalindrome(string);
+      }
+      return false;
+    }
+  }
+  return true;
+}
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
 

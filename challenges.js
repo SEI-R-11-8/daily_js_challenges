@@ -428,7 +428,9 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-function mergeObjects(obj1, obj2) {}
+function mergeObjects(obj1, obj2) {
+  return Object.assign(obj1, obj2);
+}
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
 
@@ -740,7 +742,19 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
-function countTheBits(n) {}
+function countTheBits(n) {
+  if (n === 0) {
+    return 0;
+  }
+  let count = 0;
+  while (n !== 1) {
+    if (n % 2 === 1) {
+      count++;
+    }
+    n = Math.trunc(n / 2);
+  }
+  return count + 1;
+}
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 
@@ -790,7 +804,18 @@ addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
-function addChecker(arr, n) {}
+function addChecker(arr, n) {
+  let result = false;
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === n) {
+        result = true;
+        break;
+      }
+    }
+  }
+  return result;
+}
 /*-----------------------------------------------------------------
 Challenge: 30-totalTaskTime
 
@@ -818,7 +843,21 @@ totalTaskTime( [2, 2, 3, 3, 4, 4], 2 ) //=> 9
 totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------*/
 // Your solution for 30- here:
-function totalTaskTime(arr, n) {}
+function totalTaskTime(arr, n) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  let thread = [];
+  for (let i = 0; i < n; i++) {
+    thread.push(arr[i]);
+  }
+  for (let i = n; i < arr.length; i++) {
+    thread.sort((a, b) => a - b);
+    thread.splice(0, 1, thread[0] + arr[i]);
+  }
+  thread.sort((a, b) => a - b);
+  return thread[n - 1];
+}
 
 /*-----------------------------------------------------------------*/
 module.exports = {

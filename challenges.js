@@ -215,7 +215,18 @@ charCount('hello') //=> { h: 1, e: 1, l: 2, o: 1 }
 charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i: 2, s: 2, f: 1, n: 1, t: 2, c: 1, '!': 1 }
 -----------------------------------------------------------------*/
 // Your solution for 09-charCount here:
-function charCount(string) {}
+function charCount(string) {
+  let object = {};
+  for (let i = 0; i < string.length; i++) {
+    let letter = string.charAt(i);
+    if (object[letter]) {
+      object[letter]++;
+    } else {
+      object[letter] = 1;
+    }
+  }
+  return object;
+}
 /*-----------------------------------------------------------------
 Challenge: 10-formatWithPadding
 
@@ -238,9 +249,11 @@ formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 function formatWithPadding(n, char, length) {
+  // convert number to a string (example: 123 becomes '123')
   let newString = n.toFixed(0);
+  // while length of string is < length, add char to the beginning of it (example: '00123')
   while (newString.length < length) {
-    newString = char + n;
+    newString = char + newString;
   }
   return newString;
 }
@@ -264,7 +277,17 @@ isPalindrome('A nut for a jar of tuna'); //=> true
 isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
-function isPalindrome(string) {}
+function isPalindrome(string) {
+  // let string = string.toLowerCase();
+  // while (string.includes(' ')) {
+  //   string = string.replace(' ', '');
+  // }
+  // let halfLength = Math.floor(string.length / 2);
+  // for (let i = 0; i < halfLength; i++) {
+  //   if (string.charAt(i) !== string.charAt(string.length - i - 1)) return false;
+  // }
+  // return true;
+}
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
 
@@ -288,10 +311,11 @@ hammingDistance('abc', 'ab'); //=> NaN
 // Your solution for 12-hammingDistance here:
 function hammingDistance(str1, str2) {
   if (str1.length !== str2.length) {
-    return 'NaN';
+    return NaN;
   }
-  let count = 1;
-  for (i = 0; i < str1.length; i++) if (str1[i] !== str2[i]) count++;
+  let count = 0;
+  for (let i = 0; i < str1.length; i++)
+    if (str1.charAt(i) !== str2.charAt(i)) count++;
   return count;
 }
 /*-----------------------------------------------------------------
@@ -313,7 +337,11 @@ mumble('121'); //=> '1-22-111'
 mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
-function mumble(string) {}
+function mumble(string) {
+  // let newString = ''
+  // for (let i = 0; i < string.length; i++)
+  //   newString += string.charAt(i)+
+}
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
 
@@ -491,7 +519,13 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
-function isPrime(n) {}
+function isPrime(n) {
+  if (n < 2 || n % 1 !== 0) return false;
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
 /*-----------------------------------------------------------------
 Challenge: 21-primeFactors
 

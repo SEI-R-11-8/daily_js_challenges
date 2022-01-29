@@ -601,7 +601,6 @@ function flatten(arr) {
       newArr.push(nestedItem);
     }
   });
-  console.log(newArr);
   return newArr;
   // const newArr = [];
   // for (let i = 0; i < arr.length; i++) {
@@ -616,8 +615,6 @@ function flatten(arr) {
   // console.log(arr.flat());
   // return arr.flat();
 }
-
-flatten([1, [2, [3, [4]]], 1, 'a', ['b', 'c']]);
 /*-----------------------------------------------------------------
 Challenge: 20-isPrime
 
@@ -637,7 +634,25 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
-function isPrime(n) {}
+function isPrime(n) {
+  let i = 0;
+  while (i < n) {
+    if (n === 1 || n !== parseInt(n)) {
+      i++;
+      return false;
+    } else if (n !== 2 && n % 2 === 0) {
+      return false;
+    } else if (n % i === 0) {
+      i++;
+      return false;
+    } else {
+      i++;
+      return true;
+    }
+  }
+}
+
+console.log(isPrime(1));
 /*-----------------------------------------------------------------
 Challenge: 21-primeFactors
 

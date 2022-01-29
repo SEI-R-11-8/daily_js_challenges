@@ -592,7 +592,32 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 //=> [1, 2, 3, 4, 1, 'a', 'b', 'c']
 -----------------------------------------------------------------*/
 // Your solution for 19-flatten here:
-function flatten(arr) {}
+function flatten(arr) {
+  let newArr = [];
+  arr.forEach((nestedItem) => {
+    if (Array.isArray(nestedItem)) {
+      newArr = newArr.concat(flatten(nestedItem));
+    } else {
+      newArr.push(nestedItem);
+    }
+  });
+  console.log(newArr);
+  return newArr;
+  // const newArr = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (Array.isArray(arr[i])) {
+  //     flatten(arr[i]);
+  //   } else {
+  //     newArr.push(arr[i]);
+  //   }
+  // }
+  // console.log(newArr);
+  // return newArr;
+  // console.log(arr.flat());
+  // return arr.flat();
+}
+
+flatten([1, [2, [3, [4]]], 1, 'a', ['b', 'c']]);
 /*-----------------------------------------------------------------
 Challenge: 20-isPrime
 

@@ -608,11 +608,20 @@ primeFactors(200) //=> [2, 2, 2, 5, 5]
 // Your solution for 21-primeFactors here:
 function primeFactors(n) {
   let factors = [];
-  if (n < 1 && typeof n !== 'Integer') {
+  if (n < 2 && !Number.isInteger(n)) {
     return [];
   }
-  for (let i = 2; i < Math.floor(n / 2); i++) {}
-
+  // if (n === 2 || n === 3) {
+  //   return [n];
+  // }
+  let count = 2;
+  while (count <= n) {
+    while (Number.isInteger(n / count)) {
+      factors.push(count);
+      n = n / count;
+    }
+    count++;
+  }
   return factors;
 }
 /*-----------------------------------------------------------------

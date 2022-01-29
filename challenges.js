@@ -643,11 +643,11 @@ function balancedBrackets(str) {
   if (str.length % 2) return false;
   let stack = [];
   for (let i = 0; i < str.length; i++) {
-    let b = str.charAt(i);
-    if ('([{'.includes(b)) {
-      stack.push(b);
+    let char = str.charAt(i);
+    if ('([{'.includes(char)) {
+      stack.push(char);
     } else {
-      if (!'() {} []'.includes(stack.pop() + b)) return false;
+      if (!'() {} []'.includes(stack.pop() + char)) return false;
     }
   }
   return true;

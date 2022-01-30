@@ -429,7 +429,13 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c:
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
 function mergeObjects(obj1, ...obj2) {
-  return Object.assign(obj1, ...obj2);
+  for (let i = 0; i < [...obj2].length; i++) {
+    for (let key in [...obj2][i]) {
+      obj1[key] = [...obj2][i][key];
+    }
+  }
+  return obj1;
+  //return Object.assign(obj1, ...obj2);
 }
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
@@ -499,7 +505,13 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 //=> ["1 - rose", "2 - tulip", "3 - daisy"]
 -----------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
-function mapArray(arr, cb) {}
+function mapArray(arr, cb) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(cb(arr[i], i));
+  }
+  return newArr;
+}
 /*-----------------------------------------------------------------
 Challenge: 18-reduceArray
 
@@ -533,7 +545,13 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 //=> {"Yes": 2, "No": 1, "Maybe": 1}
 -----------------------------------------------------------------*/
 // Your solution for 18-reduceArray here:
-function reduceArray(arr, acc, value) {}
+function reduceArray(arr, acc, value) {
+  let returnValue = value;
+  for (let i = 0; i < arr.length; i++) {
+    returnValue = acc(returnValue, arr[i], i);
+  }
+  return returnValue;
+}
 /*-----------------------------------------------------------------
 Challenge: 19-flatten
 

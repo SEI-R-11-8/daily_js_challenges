@@ -552,7 +552,15 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 //=> [1, 2, 3, 4, 1, 'a', 'b', 'c']
 -----------------------------------------------------------------*/
 // Your solution for 19-flatten here:
-function flatten(arr) {}
+function flatten(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      newArr = newArr.concat(flatten(arr[i]));
+    } else newArr.push(arr[i]);
+  }
+  return newArr;
+}
 /*-----------------------------------------------------------------
 Challenge: 20-isPrime
 
@@ -611,9 +619,7 @@ function primeFactors(n) {
   if (n < 2 && !Number.isInteger(n)) {
     return [];
   }
-  // if (n === 2 || n === 3) {
-  //   return [n];
-  // }
+
   let count = 2;
   while (count <= n) {
     while (Number.isInteger(n / count)) {

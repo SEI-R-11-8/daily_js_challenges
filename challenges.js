@@ -907,7 +907,40 @@ gridTrip( [5, 10], 'D5L15U2' ) //-> [2, -5]
 gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 -----------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
-function gridTrip(arr, string) {}
+function gridTrip(arr, string) {
+  let strArr = string.split('');
+  console.log(strArr);
+  let count = 0;
+  while (count < strArr.length && strArr.length > 2) {
+    let c = 1;
+    let numStr = '';
+    if (isNaN(strArr[count])) {
+      while (!isNaN(strArr[count + c]) && count + c < strArr.length) {
+        numStr += strArr[count + c];
+        c++;
+      }
+      let num = parseInt(numStr);
+      switch (strArr[count]) {
+        case 'U':
+          arr[0] += num;
+          break;
+        case 'D':
+          arr[0] -= num;
+          break;
+        case 'R':
+          arr[1] += num;
+          break;
+        case 'L':
+          arr[1] -= num;
+          break;
+        default:
+          break;
+      }
+    }
+    count = count + c;
+  }
+  return arr;
+}
 /*-----------------------------------------------------------------
 Challenge: 29-addChecker
 

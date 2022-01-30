@@ -521,7 +521,7 @@ isPrime(200) //=> false
 // Your solution for 20-isPrime here:
 function isPrime(n) {
   if (n < 2 || n % 1 !== 0) return false;
-  for (let i = 2; i < n; i++) {
+  for (let i = 2; i <= n / 2; i++) {
     if (n % i === 0) return false;
   }
   return true;
@@ -549,7 +549,32 @@ primeFactors(105) //=> [3, 5, 7]
 primeFactors(200) //=> [2, 2, 2, 5, 5]
 -----------------------------------------------------------------*/
 // Your solution for 21-primeFactors here:
-function primeFactors(n) {}
+function primeFactors(n) {
+  if (n < 2 || n % 1 !== 0) return [];
+
+  let factors = [];
+
+  let checkIfPrime = (n) => {
+    if (n < 2 || n % 1 !== 0) return false;
+    for (let i = 2; i <= n / 2; i++) {
+      if (n % i === 0) return false;
+    }
+    return true;
+  };
+
+  let prime = 2;
+  while (!checkIfPrime(n)) {
+    if (n % prime === 0) {
+      factors.push(prime);
+      n = n / prime;
+    } else {
+      prime++;
+      while (!checkIfPrime(prime)) prime++;
+    }
+  }
+  factors.push(n);
+  return factors;
+}
 /*-----------------------------------------------------------------
 Challenge: 22-intersection
 

@@ -610,7 +610,18 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 //=> [1, 2, 3, 4, 1, 'a', 'b', 'c']
 -----------------------------------------------------------------*/
 // Your solution for 19-flatten here:
-function flatten(arr) {}
+function flatten(arr) {
+  let newArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      let temp = flatten(arr[i]);
+
+      newArr = newArr.concat(temp);
+    } else newArr.push(arr[i]);
+  }
+  return newArr;
+}
 /*-----------------------------------------------------------------
 Challenge: 20-isPrime
 
@@ -630,7 +641,19 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
-function isPrime(n) {}
+function isPrime(n) {
+  if (n <= 1 || !Number.isInteger(n)) {
+    return false;
+  }
+
+  for (let i = 2; i <= n - 1; i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
 /*-----------------------------------------------------------------
 Challenge: 21-primeFactors
 

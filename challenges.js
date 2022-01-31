@@ -364,13 +364,12 @@ mumble('121'); //=> '1-22-111'
 mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
+// got help for the dashes
 function mumble(string) {
   let mumbleString = ''
-  let index = []
   for (i=0; i< string.length; i++ ) {
-    let index = i
-    console.log(charAt(index))
-  } console.log(index)
+    mumbleString += ((i || '') && '-') + string.charAt(i).repeat(i + 1)
+  } return mumbleString
 }
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
@@ -389,7 +388,9 @@ fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]) //=> { a: 1, b: 2, c: 3 }
 fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sally", age: 24 }
 -----------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
-function fromPairs(arr) {}
+function fromPairs(arr) {
+  
+}
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
 

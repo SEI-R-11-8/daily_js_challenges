@@ -304,8 +304,15 @@ isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 function isPalindrome(string) {
+  let reversed = ''
+  let characters = string.toString()
+  characters = characters.replace(/\s/g, '');
+  for(let i of characters) {
+  reversed = i + reversed
+  }
+  return(reversed.toLowerCase() === characters.toLowerCase())
+  };
 
-}
 
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance

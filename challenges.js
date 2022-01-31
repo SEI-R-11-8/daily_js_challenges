@@ -336,7 +336,15 @@ hammingDistance('!!!!', '****'); //=> 4
 hammingDistance('abc', 'ab'); //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
-function hammingDistance(str1, str2) {}
+function hammingDistance(str1, str2) {
+  if (str1.length !== str2.length) return NaN
+  numDifChars = 0
+  for (var i = 0; i < str1.length; i++) {
+    if (str1.charAt(i) !== str2.charAt(i)) 
+    numDifChars++
+  }
+  return numDifChars
+}
 /*-----------------------------------------------------------------
 Challenge: 13-mumble
 
@@ -356,7 +364,14 @@ mumble('121'); //=> '1-22-111'
 mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
-function mumble(string) {}
+function mumble(string) {
+  let mumbleString = ''
+  let index = []
+  for (i=0; i< string.length; i++ ) {
+    let index = i
+    console.log(charAt(index))
+  } console.log(index)
+}
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
 

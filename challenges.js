@@ -634,25 +634,38 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
+
+// The following commented-out function passed the test, but is wrong, as I discovered when trying to call it in the primeFactors function.
+// function isPrime(n) {
+//   let i = 0;
+//   while (i < n) {
+//     if (n === 1 || n !== parseInt(n)) {
+//       i++;
+//       return false;
+//     } else if (n !== 2 && n % 2 === 0) {
+//       return false;
+//     } else if (n % i === 0) {
+//       i++;
+//       return false;
+//     } else {
+//       i++;
+//       return true;
+//     }
+//   }
+// }
+
 function isPrime(n) {
-  let i = 0;
-  while (i < n) {
-    if (n === 1 || n !== parseInt(n)) {
-      i++;
+  if (n === 1 || n !== parseInt(n)) {
+    return false;
+  }
+  for (let i = 2; i <= n / 2; i++) {
+    if (n % i === 0) {
       return false;
-    } else if (n !== 2 && n % 2 === 0) {
-      return false;
-    } else if (n % i === 0) {
-      i++;
-      return false;
-    } else {
-      i++;
-      return true;
     }
   }
+  return true;
 }
 
-console.log(isPrime(1));
 /*-----------------------------------------------------------------
 Challenge: 21-primeFactors
 
@@ -676,7 +689,26 @@ primeFactors(105) //=> [3, 5, 7]
 primeFactors(200) //=> [2, 2, 2, 5, 5]
 -----------------------------------------------------------------*/
 // Your solution for 21-primeFactors here:
-function primeFactors(n) {}
+function primeFactors(n) {
+  let arr = new Array();
+  for (let i = 2; i < n; i++) {
+    if (isPrime(i) && n % i === 0) {
+      let j = n / i;
+      arr.push(i);
+      if (isPrime(j) && n === i * j) {
+        arr.push(j);
+        return arr;
+      } else if (isPrime(j / 2)) {
+        arr.push(j / 2);
+        // arr.push(j / 2);
+        return arr;
+      }
+    }
+  }
+  return arr;
+}
+
+console.log(primeFactors(29));
 /*-----------------------------------------------------------------
 Challenge: 22-intersection
 

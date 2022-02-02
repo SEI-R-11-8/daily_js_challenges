@@ -599,7 +599,21 @@ primeFactors(105) //=> [3, 5, 7]
 primeFactors(200) //=> [2, 2, 2, 5, 5]
 -----------------------------------------------------------------*/
 // Your solution for 21-primeFactors here:
-function primeFactors(n) {}
+function primeFactors(n) {
+  let factors = [];
+  if (n < 2 || !Number.isInteger(n)) return factors;
+  let divisor = 2;
+  while (n >= divisor * divisor) {
+    if (Number.isInteger(n / divisor)) {
+      factors.push(divisor);
+      n = n / divisor;
+    } else {
+      divisor++;
+    }
+  }
+  factors.push(n);
+  return factors;
+}
 /*-----------------------------------------------------------------
 Challenge: 22-intersection
 
@@ -620,7 +634,16 @@ intersection(['a', 1], [true, 'a', 15]) //=> ['a']
 intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------*/
 // Your solution for 22-intersection here:
-function intersection(arr1, arr2) {}
+function intersection(arr1, arr2) {
+  let result = []
+  // create copy of 2nd array for purpose of handling dups
+  let arr2Copy = [...arr2]
+  arr1.forEach((val) => {
+    let i = arr2Copy.indexOf(val)
+    if (i > -1) result.push(arr2Copy.splice(i, 1)[0])
+  })
+  return result
+}
 /*-----------------------------------------------------------------
 Challenge: 23-balancedBrackets
 
@@ -642,7 +665,16 @@ balancedBrackets( '[(])' ) // => false
 balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
-function balancedBrackets(string) {}
+function balancedBrackets(string) {
+  let elems = []
+  return string.split('').every(c => {
+    if ('([{'.includes(c)) {
+      return elems.push(c)
+    } else {
+      return '() {} []'.includes(elems.pop() + c)
+    }
+  })
+}
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
 
@@ -668,7 +700,11 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ) // => true
 isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
-function isWinningTicket(arr) {}
+function isWinningTicket(arr) {
+  return arr.every(function(newArr) {
+    return newArr[0].includes(String.fromCharCode(newArr[1]))
+  })
+}
 /*-----------------------------------------------------------------
 Challenge: 25-getNumForIP
 
@@ -694,7 +730,9 @@ getNumForIP( '192.156.99.15' ) // => 3231474447
 getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
-function getNumForIP(bits) {}
+function getNumForIP(bits) {
+  return bits.split('.').reverse().reduce((sum, chunk, idx) => sum + parseInt(chunk) * 256**idx, 0)
+}
 /*-----------------------------------------------------------------
 Challenge: 26-toCamelCase
 

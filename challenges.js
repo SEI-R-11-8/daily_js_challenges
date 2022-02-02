@@ -344,7 +344,13 @@ mumble('121'); //=> '1-22-111'
 mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
-function mumble(string) {}
+function mumble(string) {
+  let res = ''
+  for (let i = 0; i < string.length; i++) {
+    res += ((i || '') && '-') + string.charAt(i).repeat(i + 1)
+  }
+  return res
+}
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
 
@@ -362,7 +368,12 @@ fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]) //=> { a: 1, b: 2, c: 3 }
 fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sally", age: 24 }
 -----------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
-function fromPairs(arr) {}
+function fromPairs(arr) {
+  return arr.reduce((obj, newArr) => {
+      obj[newArr[0]] = newArr[1];
+      return obj;
+  }, {});
+}
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
 
@@ -380,7 +391,9 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-function mergeObjects(obj1, obj2) {}
+function mergeObjects(obj1, ...obj2) {
+  return Object.assign(obj1, ...obj2)
+}
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
 
@@ -414,7 +427,11 @@ findHighestPriced([
 //=> { sku: 'b2', price: 50 }
 -----------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
-function findHighestPriced(arr) {}
+function findHighestPriced(arr) {
+  return arr.reduce((max, item) => 
+    item.price > max.price ? item : max
+  )  
+}
 /*-----------------------------------------------------------------
 Challenge: 17-mapArray
 
@@ -441,7 +458,14 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 //=> ["1 - rose", "2 - tulip", "3 - daisy"]
 -----------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
-function mapArray(arr, cb) {}
+function mapArray(arr, cb) {
+  let newArr = []
+  arr.forEach(function (element, i) {
+    newArr.push(cb(element, i))
+  })
+  return newArr
+}
+
 /*-----------------------------------------------------------------
 Challenge: 18-reduceArray
 
@@ -474,8 +498,16 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 }, {} );
 //=> {"Yes": 2, "No": 1, "Maybe": 1}
 -----------------------------------------------------------------*/
-// Your solution for 18-reduceArray here:
-function reduceArray(arr, acc, value) {}
+function reduceArray(arr, cb, initAcc) {
+  let acc = initAcc
+  arr.forEach(function (el, i) {
+    acc = cb(acc, el, i)
+  })
+  return acc
+}
+
+
+
 /*-----------------------------------------------------------------
 Challenge: 19-flatten
 
@@ -502,7 +534,18 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 //=> [1, 2, 3, 4, 1, 'a', 'b', 'c']
 -----------------------------------------------------------------*/
 // Your solution for 19-flatten here:
-function flatten(arr) {}
+function flatten(arr) {
+  let flat = []
+    arr.forEach(function (elem) {
+    if (Array.isArray(elem)) {
+      flat = flat.concat(flatten(elem))
+    } else {
+    flat.push(elem)
+    }
+  })
+  return flat
+}
+
 /*-----------------------------------------------------------------
 Challenge: 20-isPrime
 
@@ -522,7 +565,17 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
-function isPrime(n) {}
+function isPrime(n) {
+  if (n < 2 || !Number.isInteger(n)){
+    return false
+  } 
+  for (var i = 2; i <= n / 2; i++) {
+    if (Number.isInteger(n / i)) {
+    return false
+    }
+  }
+  return true
+}
 /*-----------------------------------------------------------------
 Challenge: 21-primeFactors
 

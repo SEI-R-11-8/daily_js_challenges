@@ -431,7 +431,13 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c:
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
 function mergeObjects(obj1, obj2) {
-  obj1 = { ...obj2, ...obj1 };
+  // if (obj1) {
+  //   return obj1;
+  // }
+  // } else if (obj2 === {}) {
+  //   return obj1;
+  // }
+  // obj1 = { ...obj2, ...obj1 };
   return obj1;
 }
 /*-----------------------------------------------------------------
@@ -795,7 +801,18 @@ addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
-function addChecker(arr, n) {}
+function addChecker(arr, n) {
+  let num = 0;
+  let sum = 0;
+  for (let i = 0; i < arr.length - 1; i++) {
+    num = arr[i];
+    for (let j = 1; j < arr.length; j++) {
+      sum = arr[i] + arr[j];
+      if (sum === n) return true;
+    }
+  }
+  return false;
+}
 /*-----------------------------------------------------------------
 Challenge: 30-totalTaskTime
 

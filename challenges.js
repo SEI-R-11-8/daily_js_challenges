@@ -734,7 +734,21 @@ intersection(['a', 1], [true, 'a', 15]) //=> ['a']
 intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------*/
 // Your solution for 22-intersection here:
-function intersection(arr1, arr2) {}
+function intersection(arr1, arr2) {
+  let intersectArr = new Array();
+  let arr2copy = [...arr2];
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2copy.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        intersectArr.push(arr2[j]);
+        arr2copy.splice(j, 1);
+        j++;
+      }
+    }
+  }
+  return intersectArr;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 23-balancedBrackets
 
@@ -757,6 +771,7 @@ balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
 function balancedBrackets(string) {}
+
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
 

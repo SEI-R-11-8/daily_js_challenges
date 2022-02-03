@@ -806,39 +806,23 @@ balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
 function balancedBrackets(string) {
-  // THIS NO WORK YET
-  function remove(str) {
-    let arr = [...str];
-    console.log(arr);
-    for (i = 0; i < arr.length; i++) {
-      for (x = i + 1; x < arr.length; x++) {
-        if (arr[i] === '(' && arr[x] === ')') {
-          arr.splice(x, 1);
-          arr.splice(i, 1);
-          return arr;
-        }
-      }
-      if (i === arr.length - 1) {
-        return arr;
+  let arr = [];
+  for (i = 0; i < string.length; i++) {
+    if (string[i] === '{' || string[i] === '(' || string[i] === '[') {
+      arr.push(string[i]);
+    } else {
+      if (string[i] === '}' && arr[arr.length - 1] === '{') {
+        arr.pop();
+      } else if (string[i] === ']' && arr[arr.length - 1] === '[') {
+        arr.pop();
+      } else if (string[i] === ')' && arr[arr.length - 1] === '(') {
+        arr.pop();
+      } else {
+        return false;
       }
     }
   }
-  let first = remove(string);
-  console.log(first);
-  if (first.length < 1) {
-    return true;
-  }
-  let second = remove(first);
-  if (second.length < 1) {
-    return true;
-  }
-  let third = remove(second);
-  console.log('third:', third);
-  if (third.length < 1) {
-    return true;
-  } else {
-    return false;
-  }
+  return true;
 }
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
@@ -1043,7 +1027,30 @@ gridTrip( [5, 10], 'D5L15U2' ) //-> [2, -5]
 gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 -----------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
-function gridTrip(arr, string) {}
+function gridTrip(arr, string) {
+  let x = arr[0];
+  let y = arr[1];
+  const regexp = /[A-Z]+[0-9]+/g;
+  const instructionArr = string.match(regexp);
+  instructionArr.map((instruction) => {
+    let num = parseInt(instruction.slice(1));
+    switch (instruction[0]) {
+      case 'L':
+        y -= num;
+        break;
+      case 'R':
+        y += num;
+        break;
+      case 'U':
+        x += num;
+        break;
+      case 'D':
+        x -= num;
+        break;
+    }
+  });
+  return [x, y];
+}
 /*-----------------------------------------------------------------
 Challenge: 29-addChecker
 
@@ -1069,7 +1076,18 @@ addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
-function addChecker(arr, n) {}
+function addChecker(arr, n) {
+  for (i = 0; i < arr.length; i++) {
+    for (x = 0; x < arr.length; x++) {
+      if (arr[i] + arr[x] > n) {
+        break;
+      } else if (arr[i] + arr[x] === n) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
 /*-----------------------------------------------------------------
 Challenge: 30-totalTaskTime
 
@@ -1097,7 +1115,92 @@ totalTaskTime( [2, 2, 3, 3, 4, 4], 2 ) //=> 9
 totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------*/
 // Your solution for 30- here:
-function totalTaskTime(arr, n) {}
+function totalTaskTime(arr, n) {
+  let mainArr = arr;
+  sumArr = (array) => {
+    return array.reduce((acc, a) => acc + a, 0);
+  };
+  if (n === 1) {
+    return sumArr(arr);
+  } else if (n === 2) {
+    let arr1 = [arr[0]];
+    let arr2 = [arr[1]];
+    mainArr.shift();
+    mainArr.shift();
+    if (mainArr.length === 0) {
+      if (arr1[0] > arr2[0]) {
+        return arr1[0];
+      } else {
+        return arr2[0];
+      }
+    }
+    for (let min = 1; min < 50; min++) {
+      console.log('Minute:', min, arr1, arr2);
+      if (sumArr(arr1) === min) {
+        arr1.push(mainArr[0]);
+        mainArr.shift();
+        if (mainArr.length === 0) {
+          return sumArr(arr1);
+        }
+      }
+      if (sumArr(arr2) === min) {
+        arr2.push(mainArr[0]);
+        mainArr.shift();
+        if (mainArr.length === 0) {
+          return sumArr(arr2);
+        }
+      }
+    }
+  } else if (n === 3) {
+    let arr1 = [arr[0]];
+    let arr2 = [arr[1]];
+    let arr3 = [arr[2]];
+    mainArr.shift();
+    mainArr.shift();
+    mainArr.shift();
+    if (mainArr.length === 0) {
+      if (arr1[0] >= arr2[0] && arr1[0] >= arr3[0]) {
+        return arr1[0];
+      } else if (arr2[0] >= arr1[0] && arr2[0] >= arr3[0]) {
+        return arr2[0];
+      } else {
+        return arr3[0];
+      }
+    }
+    for (let min = 1; min < 50; min++) {
+      console.log('Minute:', min, arr1, arr2, arr3);
+      if (sumArr(arr1) === min) {
+        arr1.push(mainArr[0]);
+        mainArr.shift();
+        if (mainArr.length === 0) {
+          break;
+        }
+      }
+      if (sumArr(arr2) === min) {
+        arr2.push(mainArr[0]);
+        mainArr.shift();
+        if (mainArr.length === 0) {
+          break;
+        }
+      }
+      if (sumArr(arr3) === min) {
+        arr3.push(mainArr[0]);
+        mainArr.shift();
+        if (mainArr.length === 0) {
+          break;
+        }
+      }
+    }
+    console.log('FINAL:', arr1, arr2, arr3);
+    if (sumArr(arr1) >= sumArr(arr2) && sumArr(arr1) >= sumArr(arr3)) {
+      return sumArr(arr1);
+    } else if (sumArr(arr2) >= sumArr(arr1) && sumArr(arr2) >= sumArr(arr3)) {
+      return sumArr(arr2);
+    } else {
+      return sumArr(arr3);
+    }
+  }
+}
 
 /*-----------------------------------------------------------------*/
 module.exports = {

@@ -651,7 +651,6 @@ function isPrime(n) {
       return false;
     }
   }
-
   return true;
 }
 /*-----------------------------------------------------------------
@@ -677,7 +676,25 @@ primeFactors(105) //=> [3, 5, 7]
 primeFactors(200) //=> [2, 2, 2, 5, 5]
 -----------------------------------------------------------------*/
 // Your solution for 21-primeFactors here:
-function primeFactors(n) {}
+function primeFactors(n) {
+  let newArr = [];
+
+  if (n <= 1 || !Number.isInteger(n)) {
+    return newArr;
+  } else isPrime(n);
+
+  function isPrime(num) {
+    for (let i = 2; i <= num / 2; i++) {
+      if (num % i === 0) {
+        newArr.push(i);
+        let next = num / i;
+        return isPrime(next);
+      }
+    }
+    newArr.push(num);
+  }
+  return newArr;
+}
 /*-----------------------------------------------------------------
 Challenge: 22-intersection
 

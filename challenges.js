@@ -682,7 +682,20 @@ balancedBrackets( '[(])' ) // => false
 balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
-function balancedBrackets(string) { }
+function balancedBrackets(string) {
+  if (string.length % 2) return false
+  let braces = []
+  for (let i = 0; i < string.length; i++) {
+    let x = string.charAt(i)
+    if ('([{'.includes(x)) {
+      braces.push(x)
+    } else {
+      if (!'() {} []'.includes(braces.pop() + x))
+        return false
+    }
+  }
+  return true
+}
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
 

@@ -849,7 +849,22 @@ gridTrip( [5, 10], 'D5L15U2' ) //-> [2, -5]
 gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 -----------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
-function gridTrip(arr, string) { }
+function gridTrip(arr, string) {
+  var answer = [arr[0], arr[1]]
+  const show = { U: [0, 1], R: [1, 1], D: [0, -1], L: [1, -1] }
+  let i = 0
+  while (i < string.length) {
+    let move = string[i]
+    i++
+    let num = ''
+    while ('0123456789'.includes(string[i]) && i < string.length) {
+      num += string[i]
+      i++
+    }
+    answer[show[move][0]] += num * show[move][1]
+  }
+  return answer
+}
 /*-----------------------------------------------------------------
 Challenge: 29-addChecker
 

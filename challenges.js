@@ -691,24 +691,29 @@ primeFactors(200) //=> [2, 2, 2, 5, 5]
 // Your solution for 21-primeFactors here:
 function primeFactors(n) {
   let arr = new Array();
-  for (let i = 2; i < n; i++) {
-    if (isPrime(i) && n % i === 0) {
-      let j = n / i;
-      arr.push(i);
-      if (isPrime(j) && n === i * j) {
-        arr.push(j);
-        return arr;
-      } else if (isPrime(j / 2)) {
-        arr.push(j / 2);
-        // arr.push(j / 2);
-        return arr;
+  if (n < 2 || !Number.isInteger(n)) {
+    return arr;
+  } else if (isPrime(n)) {
+    arr.push(n);
+    return arr;
+  } else {
+    let i = 2;
+    while (i <= n / 2) {
+      if (n % i === 0) {
+        arr.push(i);
+        n = n / i;
+      } else {
+        i++;
+        while (!isPrime(i)) {
+          i++;
+        }
       }
     }
+    arr.push(n);
+    return arr;
   }
-  return arr;
 }
 
-console.log(primeFactors(29));
 /*-----------------------------------------------------------------
 Challenge: 22-intersection
 

@@ -504,7 +504,13 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 //=> {"Yes": 2, "No": 1, "Maybe": 1}
 -----------------------------------------------------------------*/
 // Your solution for 18-reduceArray here:
-function reduceArray(arr, acc, value) {}
+function reduceArray(arr, acc, value) {
+  let result = value;
+  arr.forEach(function (element, index) {
+    result = acc(result, element, index);
+  });
+  return result;
+}
 /*-----------------------------------------------------------------
 Challenge: 19-flatten
 
@@ -531,7 +537,18 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 //=> [1, 2, 3, 4, 1, 'a', 'b', 'c']
 -----------------------------------------------------------------*/
 // Your solution for 19-flatten here:
-function flatten(arr) {}
+function flatten(arr) {
+  var flatArr = [];
+  arr.forEach(function (elem) {
+    // use the Array.isArray static method to test if an array
+    if (Array.isArray(elem)) {
+      flatArr = flatArr.concat(flatten(elem));
+    } else {
+      flatArr.push(elem);
+    }
+  });
+  return flatArr;
+}
 /*-----------------------------------------------------------------
 Challenge: 20-isPrime
 
@@ -627,7 +644,15 @@ intersection(['a', 1], [true, 'a', 15]) //=> ['a']
 intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------*/
 // Your solution for 22-intersection here:
-function intersection(arr1, arr2) {}
+function intersection(arr1, arr2) {
+  let result = [];
+  let array2 = [...arr2];
+  arr1.forEach((value) => {
+    let index = array2.indexOf(value);
+    if (index > -1) result.push(array2.splice(index, 1)[0]);
+  });
+  return result;
+}
 /*-----------------------------------------------------------------
 Challenge: 23-balancedBrackets
 
@@ -649,7 +674,21 @@ balancedBrackets( '[(])' ) // => false
 balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
-function balancedBrackets(string) {}
+function balancedBrackets(string) {
+  if (string.length % 2) return false;
+  let array = [];
+  for (let i = 0; i < string.length; i++) {
+    let index = string.charAt(i);
+    if ('([{'.includes(index)) {
+      // add opening brackets to the stack
+      array.push(index);
+    } else {
+      // not an opening bracket, so remove last opening and check if matched
+      if (!'() {} []'.includes(array.pop() + index)) return false;
+    }
+  }
+  return true;
+}
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
 

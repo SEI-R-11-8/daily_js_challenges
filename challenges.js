@@ -278,15 +278,15 @@ isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 function isPalindrome(string) {
-  // let string = string.toLowerCase();
-  // while (string.includes(' ')) {
-  //   string = string.replace(' ', '');
-  // }
-  // let halfLength = Math.floor(string.length / 2);
-  // for (let i = 0; i < halfLength; i++) {
-  //   if (string.charAt(i) !== string.charAt(string.length - i - 1)) return false;
-  // }
-  // return true;
+  string = string.toLowerCase();
+  while (string.includes(' ')) {
+    string = string.replace(' ', '');
+  }
+  let halfLength = Math.floor(string.length / 2);
+  for (let i = 0; i < halfLength; i++) {
+    if (string.charAt(i) !== string.charAt(string.length - i - 1)) return false;
+  }
+  return true;
 }
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
@@ -338,9 +338,11 @@ mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
 function mumble(string) {
-  // let newString = ''
-  // for (let i = 0; i < string.length; i++)
-  //   newString += string.charAt(i)+
+  let newString = '';
+  for (let i = 0; i < string.length; i++) {
+    newString += ((i || '') && '-') + string.charAt(i).repeat(i + 1);
+  }
+  return newString;
 }
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
@@ -359,7 +361,13 @@ fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]) //=> { a: 1, b: 2, c: 3 }
 fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sally", age: 24 }
 -----------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
-function fromPairs(arr) {}
+function fromPairs(arr) {
+  let object = {};
+  arr.forEach(function (newArray) {
+    object[newArray[0]] = newArray[1];
+  });
+  return object;
+}
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
 

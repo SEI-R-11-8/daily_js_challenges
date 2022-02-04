@@ -326,7 +326,14 @@ hammingDistance('!!!!', '****'); //=> 4
 hammingDistance('abc', 'ab'); //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
-function hammingDistance(str1, str2) {}
+function hammingDistance(str1, str2) {
+  if (s1.length !== s2.length) return NaN
+  var count = 0
+  for (var i = 0; i < s1.length; i++) {
+    if (s1.charAt(i) !== s2.charAt(i)) count++
+  }
+  return count
+}
 /*-----------------------------------------------------------------
 Challenge: 13-mumble
 
@@ -346,7 +353,14 @@ mumble('121'); //=> '1-22-111'
 mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
-function mumble(string) {}
+function mumble(string) {
+    var result = ''
+    for (var i = 0; i < str.length; i++) {
+      // the ((i || '') && '-') only adds a dash if it's not the first iteration
+      result += ((i || '') && '-') + str.charAt(i).repeat(i + 1)
+    }
+    return result
+  }
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
 
@@ -364,7 +378,13 @@ fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]) //=> { a: 1, b: 2, c: 3 }
 fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sally", age: 24 }
 -----------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
-function fromPairs(arr) {}
+function fromPairs(array) {
+  var obj = {}
+  array.forEach(function (kvArr) {
+    obj[kvArr[0]] = kvArr[1]
+  })
+  return obj
+}
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
 
@@ -382,7 +402,15 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-function mergeObjects(obj1, obj2) {}
+function mergeObjects(object1, object2) {
+  objects.forEach(function (obj) {
+    for (var key in obj) {
+      target[key] = obj[key]
+    }
+  })
+  return target
+
+}
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
 
@@ -416,7 +444,18 @@ findHighestPriced([
 //=> { sku: 'b2', price: 50 }
 -----------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
-function findHighestPriced(arr) {}
+function findHighestPriced(arr) {
+  var highestPrice = 0
+  var resultObj
+  arr.forEach(function (item) {
+    if (item.price > highestPrice) {
+      highestPrice = item.price
+      resultObj = item
+    }
+  })
+  return resultObj
+}
+}
 /*-----------------------------------------------------------------
 Challenge: 17-mapArray
 
@@ -443,7 +482,13 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 //=> ["1 - rose", "2 - tulip", "3 - daisy"]
 -----------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
-function mapArray(arr, cb) {}
+function mapArray(array, cb) {
+  var newArray = []
+  array.forEach(function (el, idx) {
+    newArr.push(cb(el, idx))
+  })
+  return newArray
+}
 /*-----------------------------------------------------------------
 Challenge: 18-reduceArray
 
@@ -477,7 +522,13 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 //=> {"Yes": 2, "No": 1, "Maybe": 1}
 -----------------------------------------------------------------*/
 // Your solution for 18-reduceArray here:
-function reduceArray(arr, acc, value) {}
+function reduceArray(array, acc, value) {
+  var acc = initAcc
+  array.forEach(function (el, idx) {
+    acc = cb(acc, el, idx)
+  })
+  return acc
+}
 /*-----------------------------------------------------------------
 Challenge: 19-flatten
 

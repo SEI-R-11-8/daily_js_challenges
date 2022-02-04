@@ -84,10 +84,6 @@ describe('05-computeRemainder', function () {
   })
 })
 
-function computeRemainder(n1, n2) {
-  if (n2 === 0) return Infinity
-  return n1 - Math.floor(n1 / n2) * n2
-}
 
 
 
@@ -102,16 +98,7 @@ describe('06-range', function () {
   })
 })
 
-function range(start, finish) {
-  if (start > finish) return 'First argument must be less than second'
 
-  var range = []
-  for (var n = start; n < finish; n++) {
-    range.push(n)
-  }
-
-  return range
-}
 
 describe('07-reverseUpcaseString', function () {
   it('returns string reversed and upcased', function () {
@@ -140,14 +127,6 @@ describe('08-removeEnds', function () {
   })
 })
 
-function removeEnds(str) {
-  if (str.length < 3) return ''
-  var result = ''
-  for (var i = 1; i < str.length - 1; i++) {
-    result += str.charAt(i)
-  }
-  return result
-}
 
 
 describe('09-charCount', function () {
@@ -174,19 +153,6 @@ describe('09-charCount', function () {
   })
 })
 
-function charCount(str) {
-  var result = {}
-  for (var i = 0; i < str.length; i++) {
-    var char = str.charAt(i)
-    // already seen this char?
-    if (result[char]) {
-      result[char]++
-    } else {
-      result[char] = 1
-    }
-  }
-  return result
-}
 
 describe('10-formatWithPadding', function () {
   it('pads only if not min lenth', function () {
@@ -198,11 +164,5 @@ describe('10-formatWithPadding', function () {
   })
 })
 
-function formatWithPadding(int, char, length) {
-  var result = int.toFixed(0)
-  while (result.length < length) {
-    result = char + result
-  }
-  return result
-}
+
 

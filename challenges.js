@@ -386,12 +386,12 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c:
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
 function mergeObjects(obj1, obj2) {
-  obj2.forEach(function (object) {
-    for (let key in object) {
-      obj1[key] = object[key];
-    }
-  });
-  return obj1;
+  // obj2.forEach(function (object) {
+  //   for (var key in object) {
+  //     obj1[key] = object[key];
+  //   }
+  // });
+  // return obj1;
 }
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
@@ -714,7 +714,17 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ) // => true
 isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
-function isWinningTicket(arr) {}
+function isWinningTicket(arr) {
+  let result = true;
+  for (let i = 0; i < arr.length; i++) {
+    let character = String.fromCharCode(arr[i][1]);
+    if (!arr[i][0].includes(character)) {
+      result = false;
+      break;
+    }
+  }
+  return result;
+}
 /*-----------------------------------------------------------------
 Challenge: 25-getNumForIP
 
@@ -740,7 +750,14 @@ getNumForIP( '192.156.99.15' ) // => 3231474447
 getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
-function getNumForIP(bits) {}
+function getNumForIP(bits) {
+  let items = bits.split('.').reverse();
+  let result = 0;
+  items.forEach(function (item, index) {
+    result += parseInt(item) * 256 ** index;
+  });
+  return result;
+}
 /*-----------------------------------------------------------------
 Challenge: 26-toCamelCase
 
@@ -791,7 +808,12 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
-function countTheBits(n) {}
+function countTheBits(n) {
+  return n
+    .toString(2)
+    .split('')
+    .filter((bit) => bit === '1').length;
+}
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 

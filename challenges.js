@@ -1115,18 +1115,45 @@ function totalTaskTime(arr, n) {
   if (!arr.length) {
     return arr.length;
   }
+  // // This part worked for when n === one or two ----------------------->
+  // arr.sort((a, b) => b - a);
+  // if (n === 1) {
+  //   let sum = arr.reduce((acc, value) => {
+  //     return acc + value;
+  //   }, 0);
+  //   return sum;
+  // } else if (n === 2) {
+  // }
 
-  arr.sort((a, b) => b - a);
-
-  if (n === 1) {
-    let sum = arr.reduce((acc, value) => {
-      return acc + value;
-    }, 0);
-    return sum;
-  } else if (n === 2) {
+  // if (n === 2) {
+  //   let threadOne = 0;
+  //   let threadTwo = 0;
+  //   for (let i = 0; i < arr.length; i++) {
+  //     threadOne += arr[i];
+  //     if (arr[i + 1]) {
+  //       threadTwo += arr[i + 1];
+  //       i++;
+  //     }
+  //   }
+  //   console.log(threadOne, threadTwo);
+  //   return threadOne > threadTwo ? threadOne : threadTwo;
+  // }
+  // <-------------------------------------------------
+  const sumArray = [];
+  let i = 0;
+  while (i < n) {
+    sumArray.push(arr[i]);
+    i++;
   }
+  while (i < arr.length) {
+    const min = sumArray.indexOf(Math.min(...sumArray));
+    sumArray[min] += arr[i];
+    i++;
+  }
+  sumArray.sort((a, b) => b - a);
+  return sumArray[0];
 }
-// console.log(totalTaskTime([4, 2, 5], 1));
+
 /*-----------------------------------------------------------------*/
 module.exports = {
   sayHello,

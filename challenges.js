@@ -770,8 +770,87 @@ balancedBrackets( '[(])' ) // => false
 balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
-function balancedBrackets(string) {}
+function balancedBrackets(string) {
+  if (string.length <= 1 || string.length % 2 !== 0) {
+    return false;
+  }
+  const openBraces = [];
+  for (let i = 0; i < string.length; i++) {
+    if ('([{'.includes(string[i])) {
+      openBraces.push(string[i]);
+    } else if (!'() {} []'.includes(openBraces.pop() + string[i])) {
+      return false;
+    }
+  }
+  return true;
+  // const parensMatch = openParens.length === closedParens.length ? true : false;
+  // console.log(parensMatch);
+  // test brackets
+  // const brackets = [];
+  // const bracketsReverse = [];
+  // for (let i = 0; i < string.length; i++) {
+  //   if (string[i] === '[') {
+  //     brackets.push(string[i]);
+  //     bracketsReverse.push(string[i]);
+  //   }
+  // }
+  // for (let i = 0; i < string.length; i++) {
+  //   if (string[i] === ']') {
+  //     brackets.push(string[i]);
+  //     bracketsReverse.push(string[i]);
+  //   }
+  // }
+  // bracketsReverse.reverse();
+  // const bracketsMatch = brackets === bracketsReverse ? true : false;
 
+  // const braces = [];
+  // let stringArr = string.split('');
+  // console.log(stringArr);
+
+  // const closedParens = () => {
+  //   // let parensIndex = 0;
+  //   // while (parensIndex < stringArr.length) {
+  //   for (let i = 0; i < stringArr.length; i++) {
+  //     if (stringArr.includes('(', i)) {
+  //       parensIndex = stringArr.indexOf('(');
+  //       if (stringArr.includes(')', i)) {
+  //         let closingIndex = stringArr.indexOf(')');
+  //         stringArr.splice(closingIndex, 1);
+  //         // parensIndex++;
+  //         return true;
+  //       }
+  //     } else {
+  //       return false;
+  //     }
+  //   }
+  // };
+
+  // const closedBrackets = () => {
+  //   // return true;
+  //   let bracketsIndex = 0;
+  //   while (bracketsIndex < string.length) {
+  //     if (string.includes('(', bracketsIndex)) {
+  //       parensIndex = string.indexOf('(');
+  //       if (string.includes(')', bracketsIndex)) {
+  //         // let closingIndex = string.indexOf(')');
+  //         // string.splice(closingIndex, 1);
+  //         bracketsIndex++;
+  //         return true;
+  //       }
+  //     } else {
+  //       return false;
+  //     }
+  //   }
+  // };
+
+  // if (parensMatch) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+}
+
+console.log(balancedBrackets('(())]'));
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
 

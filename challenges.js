@@ -910,7 +910,16 @@ getNumForIP( '192.156.99.15' ) // => 3231474447
 getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
-function getNumForIP(bits) {}
+function getNumForIP(bits) {
+  const bitsArr = bits.split('.');
+  const firstNum = parseInt(bitsArr[0]) * 256 ** 3;
+  const secondNum = parseInt(bitsArr[1]) * 256 ** 2;
+  const thirdNum = parseInt(bitsArr[2]) * 256 ** 1;
+  const fourthNum = parseInt(bitsArr[3]) * 256 ** 0;
+  const sum = firstNum + secondNum + thirdNum + fourthNum;
+  return sum;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 26-toCamelCase
 

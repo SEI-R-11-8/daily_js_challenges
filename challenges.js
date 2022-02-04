@@ -936,21 +936,21 @@ function totalTaskTime(arr, n) {
     return 0
   }
 
-  // an array of integers referred to as a queue, representing a task and the time it takes to complete the task.
+  // an array of threads
   let queue = []
 
-  // for loop cycles through the threads that are available to process all of the tasks and time it takes to complete the tasks and returns a new queue.
+  // for loop cycles through the threads that are available and pushes the smallest time to the front and returns a new queue.
   for (let i = 0; i < n; i++) {
     queue.push(arr[i])
   }
 
-  // for loop cycles though the queue of threads, sorting through the available tasks in the queue, removing tasks as they are completed and reducing the time it takes to complete the task(s).
+  // for loop cycles though the queue of threads, sorting through the available threads in the queue and arranging them from smallest to largest, then removing threads as they are completed and reducing the time it takes to complete the task(s).
   for (let i = n; i < arr.length; i++) {
     queue.sort((x, z) => x - z)
     queue.splice(0, 1, queue[0] + arr[i])
   }
 
-  // sorts through the remaining tasks and returns the total time it takes to complete all the tasks in the queue.
+  // sorts through the remaining threads and returns the total time it takes to complete all the tasks in the queue.
   queue.sort((x, z) => x - z)
   return queue[n - 1]
 }

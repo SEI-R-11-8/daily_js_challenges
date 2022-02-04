@@ -430,14 +430,12 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-function mergeObjects(obj1, obj2) {
-  // if (obj1) {
-  //   return obj1;
-  // }
-  // } else if (obj2 === {}) {
-  //   return obj1;
-  // }
-  // obj1 = { ...obj2, ...obj1 };
+function mergeObjects(obj1, ...obj2) {
+  obj2.forEach(function (obj) {
+    for (var key in obj) {
+      obj1[key] = obj[key];
+    }
+  });
   return obj1;
 }
 /*-----------------------------------------------------------------
@@ -550,7 +548,13 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 //=> {"Yes": 2, "No": 1, "Maybe": 1}
 -----------------------------------------------------------------*/
 // Your solution for 18-reduceArray here:
-function reduceArray(arr, acc, value) {}
+function reduceArray(arr, acc, value) {
+  let num = value;
+  arr.forEach(function (el, i) {
+    num = acc(num, el, i);
+  });
+  return num;
+}
 /*-----------------------------------------------------------------
 Challenge: 19-flatten
 

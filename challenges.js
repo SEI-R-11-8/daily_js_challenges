@@ -850,7 +850,6 @@ function balancedBrackets(string) {
   // }
 }
 
-console.log(balancedBrackets('(())]'));
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
 
@@ -876,7 +875,16 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ) // => true
 isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
-function isWinningTicket(arr) {}
+function isWinningTicket(arr) {
+  flatArr = arr.flat();
+  for (let i = 0; i < flatArr.length; i += 2) {
+    if (!flatArr[i].includes(String.fromCharCode(flatArr[i + 1]))) {
+      return false;
+    }
+  }
+  return true;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 25-getNumForIP
 

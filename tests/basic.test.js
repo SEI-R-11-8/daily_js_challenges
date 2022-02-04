@@ -18,6 +18,7 @@ describe('00-sayHello', function () {
   })
 })
 
+
 describe('01-addOne', function () {
   it('works with negative numbers', function () {
     expect(addOne(-5)).toBe(-4)
@@ -26,6 +27,7 @@ describe('01-addOne', function () {
     expect(addOne(1)).toBe(2)
   })
 })
+
 
 describe('02-addTwoNumbers', function () {
   it('adds 5 and 10', function () {
@@ -41,6 +43,7 @@ describe('02-addTwoNumbers', function () {
     expect(addTwoNumbers('Hello', 5)).toBeNaN()
   })
 })
+
 
 describe('03-sumNumbers', function () {
   it('sums array of one num', function () {
@@ -67,6 +70,9 @@ describe('04-addList', function () {
   })
 })
 
+
+
+
 describe('05-computeRemainder', function () {
   it('returns infinity', function () {
     expect(computeRemainder(4, 0)).toBe(Infinity)
@@ -77,6 +83,9 @@ describe('05-computeRemainder', function () {
     expect(computeRemainder(10.5, 3)).toBe(1.5)
   })
 })
+
+
+
 
 describe('06-range', function () {
   it('returns msg if first arg not smaller', function () {
@@ -89,11 +98,24 @@ describe('06-range', function () {
   })
 })
 
+
+
 describe('07-reverseUpcaseString', function () {
   it('returns string reversed and upcased', function () {
     expect(reverseUpcaseString('SEI Rocks!')).toBe('!SKCOR IES')
   })
 })
+
+function reverseUpcaseString(str) {
+  var results = ''
+  for (var i = 0; i < str.length; i++) {
+    // can use square brackets to access chars in a string
+    // but using the charAt() method is preferred
+    results = str.charAt(i).toUpperCase() + results
+  }
+  return results
+}
+
 
 describe('08-removeEnds', function () {
   it('returns empty string when length less than 3', function () {
@@ -104,6 +126,8 @@ describe('08-removeEnds', function () {
     expect(removeEnds('123456789')).toBe('2345678')
   })
 })
+
+
 
 describe('09-charCount', function () {
   it('returns an object', function () {
@@ -129,6 +153,7 @@ describe('09-charCount', function () {
   })
 })
 
+
 describe('10-formatWithPadding', function () {
   it('pads only if not min lenth', function () {
     expect(formatWithPadding(1234, '*', 3)).toBe('1234')
@@ -138,3 +163,6 @@ describe('10-formatWithPadding', function () {
     expect(formatWithPadding(42, '*', 10)).toBe('********42')
   })
 })
+
+
+

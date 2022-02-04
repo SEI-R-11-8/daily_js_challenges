@@ -845,7 +845,14 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
-function countTheBits(n) {}
+function countTheBits(n) {
+  let bin = Math.abs(n).toString(2);
+  let sum = 0;
+  for (const x of bin) {
+    sum += parseInt(x);
+  }
+  return sum;
+}
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 

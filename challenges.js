@@ -648,7 +648,17 @@ intersection(['a', 1], [true, 'a', 15]) //=> ['a']
 intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------*/
 // Your solution for 22-intersection here:
-function intersection(arr1, arr2) {}
+function intersection(arr1, arr2) {
+  let arr = [];
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        arr.push(arr1[j]);
+      }
+    }
+  }
+  return arr;
+}
 /*-----------------------------------------------------------------
 Challenge: 23-balancedBrackets
 
@@ -670,7 +680,16 @@ balancedBrackets( '[(])' ) // => false
 balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
-function balancedBrackets(string) {}
+function balancedBrackets(string) {
+  let arr = [];
+  return str.split('').every((c) => {
+    if ('([{'.includes(c)) {
+      return arr.push(c);
+    } else {
+      return '() {} []'.includes(arr.pop() + c);
+    }
+  });
+}
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
 
@@ -696,7 +715,17 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ) // => true
 isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
-function isWinningTicket(arr) {}
+function isWinningTicket(arr) {
+  var winner = true;
+  for (let i = 0; i < arr.length; i++) {
+    var charFromNumber = String.fromCharCode(arr[i][1]);
+    if (!arr[i][0].includes(charFromNumber)) {
+      winner = false;
+      break;
+    }
+  }
+  return winner;
+}
 /*-----------------------------------------------------------------
 Challenge: 25-getNumForIP
 
@@ -773,7 +802,12 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
-function countTheBits(n) {}
+function countTheBits(n) {
+  return n
+    .toString(2)
+    .split('')
+    .filter((bit) => bit === '1').length;
+}
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 

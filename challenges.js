@@ -999,7 +999,17 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
-function countTheBits(n) {}
+function countTheBits(n) {
+  const toBinary = n.toString(2);
+  let ones = 0;
+  for (let i = 0; i < toBinary.length; i++) {
+    if (toBinary[i] === '1') {
+      ones++;
+    }
+  }
+  return ones;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 

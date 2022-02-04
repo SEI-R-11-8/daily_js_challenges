@@ -385,7 +385,14 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-function mergeObjects(obj1, obj2) {}
+function mergeObjects(obj1, obj2) {
+  obj2.forEach(function (object) {
+    for (let key in object) {
+      obj1[key] = object[key];
+    }
+  });
+  return obj1;
+}
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
 
@@ -457,7 +464,13 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 //=> ["1 - rose", "2 - tulip", "3 - daisy"]
 -----------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
-function mapArray(arr, cb) {}
+function mapArray(arr, cb) {
+  let newArray = [];
+  arr.forEach(function (element, index) {
+    newArray.push(cb(element, index));
+  });
+  return newArray;
+}
 /*-----------------------------------------------------------------
 Challenge: 18-reduceArray
 

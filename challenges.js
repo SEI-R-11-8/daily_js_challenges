@@ -581,7 +581,13 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 //=> [1, 2, 3, 4, 1, 'a', 'b', 'c']
 -----------------------------------------------------------------*/
 // Your solution for 19-flatten here:
-function flatten(arr) {}
+function flatten(arr) {
+  let arr2 = [];
+  arr.forEach(function (elem) {
+    arr2 = arr2.concat(Array.isArray(elem) ? flatten(elem) : elem);
+  });
+  return arr2;
+}
 /*-----------------------------------------------------------------
 Challenge: 20-isPrime
 
@@ -653,15 +659,14 @@ intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------*/
 // Your solution for 22-intersection here:
 function intersection(arr1, arr2) {
-  let arr = [];
-  for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-      if (arr1[i] === arr2[j]) {
-        arr.push(arr1[j]);
-      }
-    }
-  }
-  return arr;
+  let result = [];
+  let arr = [...arr2];
+  // didn't know we coukd do thar ^^//
+  arr1.forEach((val) => {
+    let i = arr.indexOf(val);
+    if (i > -1) result.push(arr.splice(i, 1)[0]);
+  });
+  return result;
 }
 /*-----------------------------------------------------------------
 Challenge: 23-balancedBrackets

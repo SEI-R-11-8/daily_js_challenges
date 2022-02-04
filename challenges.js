@@ -1033,7 +1033,31 @@ gridTrip( [5, 10], 'D5L15U2' ) //-> [2, -5]
 gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 -----------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
-function gridTrip(arr, string) {}
+function gridTrip(arr, string) {
+  let x = arr[0];
+  let y = arr[1];
+  const regex = /[A-Z]\d+/g;
+  const numsRegex = /\d+/g;
+  const directions = string.match(regex);
+  directions.forEach((direction) => {
+    if (direction[0] === 'U') {
+      let steps = parseInt(direction.match(numsRegex));
+      x += steps;
+    } else if (direction[0] === 'D') {
+      let steps = parseInt(direction.match(numsRegex));
+      x -= steps;
+    } else if (direction[0] === 'L') {
+      let steps = parseInt(direction.match(numsRegex));
+      y -= steps;
+    } else if (direction[0] === 'R') {
+      let steps = parseInt(direction.match(numsRegex));
+      y += steps;
+    }
+  });
+  const location = [x, y];
+  return location;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 29-addChecker
 
@@ -1087,8 +1111,22 @@ totalTaskTime( [2, 2, 3, 3, 4, 4], 2 ) //=> 9
 totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------*/
 // Your solution for 30- here:
-function totalTaskTime(arr, n) {}
+function totalTaskTime(arr, n) {
+  if (!arr.length) {
+    return arr.length;
+  }
 
+  arr.sort((a, b) => b - a);
+
+  if (n === 1) {
+    let sum = arr.reduce((acc, value) => {
+      return acc + value;
+    }, 0);
+    return sum;
+  } else if (n === 2) {
+  }
+}
+// console.log(totalTaskTime([4, 2, 5], 1));
 /*-----------------------------------------------------------------*/
 module.exports = {
   sayHello,

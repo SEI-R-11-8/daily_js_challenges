@@ -691,7 +691,7 @@ balancedBrackets( '[({}[])]' ) // => true
 // Your solution for 23-balancedBrackets here:
 function balancedBrackets(string) {
   let arr = [];
-  return str.split('').every((c) => {
+  return string.split('').every((c) => {
     if ('([{'.includes(c)) {
       return arr.push(c);
     } else {

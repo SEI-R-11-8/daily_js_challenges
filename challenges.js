@@ -981,7 +981,23 @@ totalTaskTime( [2, 2, 3, 3, 4, 4], 2 ) //=> 9
 totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------*/
 // Your solution for 30- here:
-function totalTaskTime(arr, n) {}
+function totalTaskTime(arr, n) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  let task = [];
+  let i = 0
+  let j = 0
+  for (i = 0; i < n; i++) {
+    task.push(arr[i]);
+  }
+  for (j = n; j < arr.length; j++) {
+    task.sort((a, b) => a - b);
+    task.splice(0, 1, task[0] + arr[j]);
+  }
+  task.sort((a, b) => a - b);
+  return task[n - 1];
+}
 
 /*-----------------------------------------------------------------*/
 module.exports = {

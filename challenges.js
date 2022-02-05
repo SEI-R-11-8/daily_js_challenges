@@ -51,7 +51,9 @@ addTwoNumbers(0, 0) //=> 0
 addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
-function addTwoNumbers(num1, num2) {}
+function addTwoNumbers(num1, num2) {
+  return isNaN(num1) || isNaN(num2) ? NaN : num1 + num2;
+}
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
 

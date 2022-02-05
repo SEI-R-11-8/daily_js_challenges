@@ -259,7 +259,7 @@ function formatWithPadding(n, char, length) {
     for (let i = 0; i < padding; i++) {
       result = char + result;
     }
-    console.log(result);
+
     return result;
   } else {
     return n.toString();
@@ -389,20 +389,17 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sal
 -----------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
 function fromPairs(arr) {
-  const obj = {};
-
-  arr.forEach((e) => {
-    obj[e[0]] = e[1];
-  });
-
+  let obj = {};
+  arr.forEach((e) => (obj[e[0]] = e[1]));
   return obj;
 }
+
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
 
 Difficulty:  Intermediate
 
-Prompt:
+
 
 - Write a function named mergeObjects that accepts at least two objects as arguments, merges the properties of the second through n objects into the first object, then finally returns the first object.
 - If any objects have the same property key, values from the object(s) later in the arguments list should overwrite earlier values.
@@ -414,9 +411,12 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-function mergeObjects(obj1, obj2) {}
+function mergeObjects(obj1, obj2) {
+  obj1.forEach((e) => {});
+  return { ...obj1, ...obj2 };
+}
 /*-----------------------------------------------------------------
-Challenge: 16-findHighestPriced
+
 
 Difficulty:  Intermediate  
 
@@ -448,7 +448,20 @@ findHighestPriced([
 //=> { sku: 'b2', price: 50 }
 -----------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
-function findHighestPriced(arr) {}
+function findHighestPriced(arr) {
+  let highest = {};
+  arr.forEach((e, i) => {
+    if (i === 0) {
+      highest = e;
+    } else {
+      if (highest.price < e.price) {
+        highest = e;
+      }
+    }
+  });
+  return highest;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 17-mapArray
 
@@ -475,7 +488,15 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 //=> ["1 - rose", "2 - tulip", "3 - daisy"]
 -----------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
-function mapArray(arr, cb) {}
+function mapArray(arr, cb) {
+  let array = [];
+  for (i = 0; i < arr.length; i++) {
+    array.push(cb(arr[i], i));
+  }
+
+  return array;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 18-reduceArray
 
@@ -509,7 +530,13 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 //=> {"Yes": 2, "No": 1, "Maybe": 1}
 -----------------------------------------------------------------*/
 // Your solution for 18-reduceArray here:
-function reduceArray(arr, acc, value) {}
+function reduceArray(arr, fun, acc) {
+  arr.forEach((e, i) => {
+    acc = fun(acc, e, i);
+  });
+  return acc;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 19-flatten
 
@@ -536,7 +563,14 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 //=> [1, 2, 3, 4, 1, 'a', 'b', 'c']
 -----------------------------------------------------------------*/
 // Your solution for 19-flatten here:
-function flatten(arr) {}
+function flatten(arr) {
+  let flat = [];
+  arr.forEach((e) => {
+    Array.isArray(e) ? (flat = flat.concat(flatten(e))) : flat.push(e);
+  });
+  return flat;
+}
+
 /*-----------------------------------------------------------------
 Challenge: 20-isPrime
 
@@ -556,7 +590,9 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
+
 function isPrime(n) {}
+
 /*-----------------------------------------------------------------
 Challenge: 21-primeFactors
 
@@ -700,7 +736,38 @@ toCamelCase( 'Mama-mia' ) // => 'MamaMia'
 toCamelCase( 'A_b_c' ) // => 'ABC'
 -----------------------------------------------------------------*/
 // Your solution for 26-toCamelCase here:
-function toCamelCase(string) {}
+function toCamelCase(string) {
+  let tempArr = string.split('');
+  let newString = [];
+  if (string.includes('_') || string.includes('-')) {
+    tempArr.forEach((e, i) => {
+      if (i === 0) {
+        if (tempArr[i + 1] === '_' || tempArr[i + 1] === '-')
+          newString.push(e.toUpperCase());
+        else {
+          if (e === e.toUpperCase()) {
+            newString.push(e);
+          } else {
+            newString.push(e.toLowerCase());
+          }
+        }
+      } else if (tempArr[i] === '-' || tempArr[i] === '_') {
+      } else {
+        if (tempArr[i - 1] === '_' || tempArr[i - 1] === '-') {
+          newString.push(e.toUpperCase());
+        } else {
+          newString.push(e);
+        }
+      }
+    });
+
+    return newString.join('');
+  } else {
+    console.log(string);
+    return string;
+  }
+}
+
 /*-----------------------------------------------------------------
 Challenge: 27-countTheBits
 
@@ -726,7 +793,13 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
-function countTheBits(n) {}
+
+function countTheBits(int) {
+  return int
+    .toString(2)
+    .split('')
+    .filter((bit) => bit === '1').length;
+}
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 
@@ -776,7 +849,9 @@ addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
-function addChecker(arr, n) {}
+function addChecker(arr, n) {
+  console.log(arr);
+}
 /*-----------------------------------------------------------------
 Challenge: 30-totalTaskTime
 

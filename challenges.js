@@ -436,6 +436,7 @@ function mergeObjects(obj1, obj2) {
     Object.assign(obj1, arguments[i]);
   }
   return obj1;
+}
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
 
@@ -590,6 +591,7 @@ function flatten(arr) {
     }
   });
   return newArr;
+}
 /*-----------------------------------------------------------------
 Challenge: 20-isPrime
 
@@ -866,7 +868,16 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
-function countTheBits(n) {}
+function countTheBits(n) {
+  let binary = n.toString(2);
+  let sum = 0;
+  for (i = 0; i < binary.length; i++) {
+    if (binary[i] === '1') {
+      sum++;
+    }
+  }
+  return sum;
+}
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 
@@ -980,3 +991,4 @@ module.exports = {
   addChecker,
   totalTaskTime
 }
+

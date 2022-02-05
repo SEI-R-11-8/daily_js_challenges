@@ -679,7 +679,21 @@ intersection(['a', 1], [true, 'a', 15]) //=> ['a']
 intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------*/
 // Your solution for 22-intersection here:
-function intersection(arr1, arr2) {}
+function intersection(arr1, arr2) {
+  let newArr = [];
+  let arr = arr2;
+  for (let i = 0; i < arr1.length; i++) {
+    let count = 0;
+    while (count < arr.length && arr.length > 0) {
+      if (arr1[i] === arr[count]) {
+        newArr.push(arr1[i]);
+        arr.splice(count, 1);
+      }
+      count++;
+    }
+  }
+  return newArr;
+}
 /*-----------------------------------------------------------------
 Challenge: 23-balancedBrackets
 

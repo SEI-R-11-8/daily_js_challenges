@@ -2,7 +2,10 @@
   "name": "daily_js_challenges",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:SEI-R-4-26/daily_js_challenges.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/SEI-R-4-26/daily_js_challenges.git"
+  },
   "author": "Andre Pato <anpato1994@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -10,5 +13,14 @@
   },
   "dependencies": {
     "jest": "^27.0.6"
-  }
+  },
+  "description": "![Butcher](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FVLuwvjBCZ27cY%2Fgiphy-downsized-large.gif&f=1&nofb=1)",
+  "bugs": {
+    "url": "https://github.com/SEI-R-4-26/daily_js_challenges/issues"
+  },
+  "homepage": "https://github.com/SEI-R-4-26/daily_js_challenges#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {}
 }

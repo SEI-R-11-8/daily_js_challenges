@@ -942,7 +942,18 @@ addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
-function addChecker(arr, n) {}
+function addChecker(arr, n) {
+  let check = false;
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === n) {
+        check = true;
+        break;
+      }
+    }
+  }
+  return check;
+}
 /*-----------------------------------------------------------------
 Challenge: 30-totalTaskTime
 

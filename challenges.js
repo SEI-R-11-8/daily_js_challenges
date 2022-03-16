@@ -782,6 +782,8 @@ function balancedBrackets(string) {
       return false;
     }
   }
+  if (openBraces.length) return false;
+
   return true;
   // const parensMatch = openParens.length === closedParens.length ? true : false;
   // console.log(parensMatch);

@@ -83,7 +83,11 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 function sumNumbers(nums) {
-  
+  let total = 0
+  for (let i=0; i<nums.length; i++) {
+    total += nums[i]
+  }
+  return total
 }
 
 /*-----------------------------------------------------------------
@@ -105,7 +109,11 @@ add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
 function addList() {
-  
+  let total = 0
+  for (var i=0; i< arguments.length; i++) {
+    total += arguments[i]
+  }
+  return total
 }
 
 /*-----------------------------------------------------------------
@@ -128,7 +136,8 @@ computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
 function computeRemainder(n1, n2) {
-  
+  if (n2 ===0) return Infinity
+  return n1 % n2
 }
 /*-----------------------------------------------------------------
 Challenge: 06-range
@@ -149,7 +158,12 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------*/
 // Your solution for 06-range here:
 function range(n1, n2) {
-  
+  if (n1 > n2) return ('First argument must be less than second')
+  var range = []
+  for (let i = n1; i < n2; i++) {
+    range.push(i)
+  }
+  return range
 }
 
 /*-----------------------------------------------------------------
@@ -166,9 +180,21 @@ Examples:
 reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES" 
 -----------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
-//NOT TAKING AND I DONT' KNOW WHY
+
 function reverseUpcaseString(string) {
-  
+  var newString = ''
+  for (var i = 0; i < string.length; i++) {
+    newString = string.charAt(i).toUpperCase() + newString
+  }
+  return newString
+
+  // var results = ''
+  // for (var i = 0; i < string.length; i++) {
+  //   // can use square brackets to access chars in a string
+  //   // but using the charAt() method is preferred
+  //   results = string.charAt(i).toUpperCase() + results
+  // }
+  // return results
 }
 
 /*-----------------------------------------------------------------
@@ -179,7 +205,7 @@ Difficulty: Basic
 Prompt:
 
 - Write a function called removeEnds that accepts a single string argument, 
-  then returns the a string with the first and last characters removed.
+  then returns the string with the first and last characters removed.
 - If the length of the string argument is less than 3, return an empty string.
 
 Examples:
@@ -189,7 +215,12 @@ removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
 function removeEnds(string) {
-  
+  if (string.length < 3) return ''
+  var newString = ''
+  for (let i = 1; i < string.length-1; i++) {
+    newString += string.charAt(i)
+  }
+  return newString
 }
 /*-----------------------------------------------------------------
 Challenge: 09-charCount

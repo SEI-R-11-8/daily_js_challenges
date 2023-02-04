@@ -35,8 +35,3 @@ You may choose to do more than one per day, or none at all - just don't fall too
 - After solving a challenge, be sure to check the solution(s) contained in `solutions.js`. If multiple solutions are provided, they are typically shown in increasing order of "elegance".
 
 ![Bill](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2Fde49fb1f5de8f8c9d8f49a3031b90993%2Ftenor.gif%3Fitemid%3D7919605&f=1&nofb=1)
-
-## Submission Guidelines
-
-- Your instructors will be checking your progress from time-to-time. As you solve the challenges, add and commit your work, and `git push origin main`. This pushes the updates to your fork.
-- At the end of Week 11, we will have you make one pull request on the main repo in the org using the [PR Guidelines](https://github.com/SEI-R-11-8/template_pull_request).
